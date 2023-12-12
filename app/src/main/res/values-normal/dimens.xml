@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- my dimen -->
+    <dimen name="textSizeVeryLarge">28sp</dimen>
+    <dimen name="textSizeExtraLarge">22sp</dimen>
+    <dimen name="textSizeLarge">20sp</dimen>
+    <dimen name="textSizeTitleLarge">18sp</dimen>
+    <dimen name="textSizeTitle">16sp</dimen>
+    <dimen name="textSizeNormal">14sp</dimen>
+    <dimen name="textSizeMini">12sp</dimen>
+    <dimen name="textSizeExtraMini">11sp</dimen>
+
+    <dimen name="textSizeExtraMini_dp">10dp</dimen>
+    <dimen name="textSizeSmall_dp">12dp</dimen>
+    <dimen name="textSizeExtraLarge_dp">22dp</dimen>
+
+
+    <dimen name="iconSmallHeight">30dp</dimen>
+    <dimen name="iconMiniHeight">18dp</dimen>
+
+
+    <dimen name="smallMargin">5dp</dimen>
+    <dimen name="marginBtnView">10dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="normalMargin">16dp</dimen>
+    <dimen name="padding">12dp</dimen>
+    <dimen name="paddingText">10dp</dimen>
+    <dimen name="paddingEditText">10dp</dimen>
+    <dimen name="halfMargin">8dp</dimen>
+    <dimen name="extraMargin">22dp</dimen>
+    <dimen name="extraExtraMargin">35dp</dimen>
+    <dimen name="mediumMargin">55dp</dimen>
+    <dimen name="hugeMargin">65dp</dimen>
+    <dimen name="paddingStartEditText">25dp</dimen>
+
+    <dimen name="btnCorner">20dp</dimen>
+    <dimen name="btn_h">43dp</dimen>
+    <dimen name="btn_h_small">35dp</dimen>
+    <dimen name="btn_h_extra_small">25dp</dimen>
+    <dimen name="editTextCorner">28dp</dimen>
+
+
+    <!-- splash -->
+    <dimen name="logo_w">150dp</dimen>
+
+    <!-- intro screen -->
+    <dimen name="image_h">290dp</dimen>
+
+    <!-- login -->
+    <dimen name="toolbar_h">140dp</dimen>
+    <dimen name="margin_bottom_logo">30dp</dimen>
+
+
+    <!-- home screen -->
+    <dimen name="profile_img_w_h">120dp</dimen>
+    <dimen name="profile_img_margin">60dp</dimen>
+    <dimen name="bg_header_height">180dp</dimen>
+    <dimen name="img_user_w_h">60dp</dimen>
+    <dimen name="img_user_w_h_medium">80dp</dimen>
+    <dimen name="img_user_w_h_small">45dp</dimen>
+    <dimen name="img_user_w_h_large">90dp</dimen>
+    <dimen name="img_user_w_h_extra_large">110dp</dimen>
+    <dimen name="circle_w_h">30dp</dimen>
+
+
+
+    <!--sign up-->
+    <dimen name="flag_w">30dp</dimen>
+    <dimen name="flag_h">20dp</dimen>
+
+
+
+    <dimen name="toggle_w">38dp</dimen>
+    <dimen name="toggle_h">20dp</dimen>
+
+
+    <!-- contact us screen -->
+    <dimen name="social_w_h">50dp</dimen>
+
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.new_ad.adLocation.AdLocationViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.new_ad.adLocation.AdLocationActivity">
+
+
+
+
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="@dimen/normalMargin"
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="0dp"
+            android:id="@+id/rv_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/extraMargin"
+            android:layout_marginTop="@dimen/mediumMargin"
+            android:layout_marginEnd="@dimen/extraMargin">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/normalMargin"
+                    android:src="@drawable/ic_search_pin" />
+
+                <TextView
+                    android:id="@+id/tv_search"
+                    style="@style/CustomEditTextStyle"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/type_your_address" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/smallMargin"
+                    android:src="@drawable/ic_close_black_24dp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_current_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/smallMargin"
+                    android:layout_marginEnd="@dimen/smallMargin"
+                    android:padding="@dimen/smallMargin"
+                    android:src="@drawable/ic_current_location" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.cardview.widget.CardView>
+
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:src="@drawable/leku_ic_close" />
+
+
+        <ImageView
+            android:id="@+id/img_pin_marker"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_marker" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/current_location_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/normalMargin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@string/current_location"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/textSizeTitle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    tools:text="@string/current_location"
+                    android:text="@{vm.etAddress}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSizeNormal" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="@{(v)->vm.onSelectLocationClickedListener(v)}"
+                android:text="@string/select_ad_location_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:backgroundTint="@color/mainColor"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

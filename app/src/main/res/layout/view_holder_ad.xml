@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.utils.base.BaseViewModel" />
+
+        <variable
+            name="model"
+            type="com.aelzohry.topsaleqatar.model.Ad" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/smallMargin"
+        android:layout_marginEnd="@dimen/smallMargin"
+        android:layout_marginBottom="@dimen/halfMargin"
+        android:onClick="@{(v)->vm.onAdClickedListener(v,model)}"
+        app:cardBackgroundColor="@color/item_bg"
+        app:cardCornerRadius="@dimen/default_radius"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/ad_photo_desc"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="@dimen/default_radius"
+                    tools:src="@tools:sample/avatars" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/loading"
+                    style="@style/AVLoadingIndicatorView.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/mainColor"
+                    app:indicatorName="@string/IndicatorName" />
+
+                <ImageView
+                    android:id="@+id/fixedImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:is_visible="@{model.fixed}"
+                    android:src="@drawable/ic_star_yellow_24dp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smallMargin"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:text="@{model.title}"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="@dimen/textSizeNormal"
+                            android:textStyle="bold"
+                            tools:text="TextView" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:set_double="@{model.price}"
+                                android:textColor="@color/text_color_black"
+                                android:textSize="@dimen/textSizeNormal"
+                                tools:text="999" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/smallMargin"
+                                android:text="@string/currency"
+                                android:textColor="@color/text_color_black"
+                                android:textSize="@dimen/textSizeMini" />
+
+                        </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/smallMargin"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:is_visible="@{model.isCarAd}"
+                            android:layout_gravity="end"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_calender"
+                                android:visibility="gone"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/smallMargin"
+                                android:ellipsize="end"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:text="@{model.carYear}"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_color_black"
+                                android:textSize="@dimen/textSizeMini"
+                                tools:text="yeay model" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:is_visible="@{model.isCarAd}"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:visibility="gone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_house" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/smallMargin"
+                                android:ellipsize="end"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:text="@{model.carModel.localized}"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_color_black"
+                                android:textSize="@dimen/textSizeMini"
+                                tools:text="engineCapacity" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_car_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:is_visible="@{model.isCarAd}"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_speed" />
+
+
+                        <TextView
+                            android:id="@+id/tv_km"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/smallMargin"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:text="@{model.km}"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="@dimen/textSizeNormal"
+                            tools:text="engineCapacity" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smallMargin"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:layout_marginEnd="@dimen/smallMargin"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:weightSum="3">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/btn_h_extra_small"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_border_green"
+                    android:gravity="center"
+                    android:onClick="@{(v)->vm.onWhatsappClick(v,model)}">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_whatsapp_green" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="@dimen/smallMargin"
+                    android:layout_height="@dimen/smallMargin" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/btn_h_extra_small"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_border_red"
+                    android:gravity="center"
+                    android:onClick="@{(v)->vm.onChatClick(v,model)}"
+                    android:orientation="horizontal"
+                    android:tint="@color/ios_red">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_chat"
+                        android:tint="@color/ios_red" />
+
+                    <TextView
+                        style="@style/SmallTextViewStyle"
+                        android:fontFamily="@font/tajawal_bold"
+                        android:padding="0dp"
+                        android:text="@string/chat"
+                        android:textColor="@color/ios_red"
+                        android:textSize="@dimen/textSizeSmall_dp"
+                        android:visibility="gone" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="@dimen/smallMargin"
+                    android:layout_height="@dimen/smallMargin" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/btn_h_extra_small"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_border_btn"
+                    android:gravity="center"
+                    android:onClick="@{(v)->vm.onCallClick(v,model)}"
+                    android:orientation="horizontal"
+                    android:tint="@color/colorAccent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_call_small"
+                        android:tint="@color/colorAccent" />
+
+                    <TextView
+                        style="@style/NormalTextViewStyle"
+                        android:fontFamily="@font/tajawal_bold"
+                        android:padding="0dp"
+                        android:text="@string/call"
+                        android:textSize="@dimen/textSizeSmall_dp"
+                        android:visibility="gone" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

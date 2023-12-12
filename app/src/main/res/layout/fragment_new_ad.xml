@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.new_ad.NewAdViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:orientation="vertical"
+        tools:context=".ui.new_ad.NewAdFragment">
+
+        <include layout="@layout/toolbar" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/normalMargin"
+                android:layout_weight="1"
+                android:fillViewport="true"
+                android:fitsSystemWindows="true"
+                android:scrollbars="none">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_step_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:visibility="visible"
+                        >
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/imageViewGallery"
+                                android:layout_width="0dp"
+                                android:layout_height="120dp"
+                                android:layout_marginEnd="@dimen/normalMargin"
+                                android:layout_weight="1"
+                                android:background="@drawable/custom_btn_border"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/normalMargin">
+
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_gallery" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/choose_camera_or_video"
+                                    android:textColor="@color/colorAccent" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:id="@+id/imageViewCamera"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/custom_btn_border"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/normalMargin">
+
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/choose_camera"
+                                    android:textColor="@color/colorAccent" />
+                            </LinearLayout>
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/photo_clear_note"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color_black" />
+
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/defaultImageView"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:background="@drawable/custom_btn_border"
+                            android:contentDescription="@string/default_image_description"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone"
+                            app:riv_corner_radius="8dp" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/imagesRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/view_holder_new_image" />
+
+
+                        <TextView
+                            android:id="@+id/tv_image_click"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/default_half_margin"
+                            android:text="@string/click_on_image_to_edit"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color_black"
+                            android:visibility="gone" />
+
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/ed_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:inputType="text"
+                            android:maxLength="50"
+                            android:text="@{vm.etTitle}"
+                            app:hint="@string/title_hint"
+                            app:label="@string/title_hint"
+                            app:show_label="false" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_step_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:visibility="visible">
+
+
+                        <!--                        <com.google.android.material.textfield.TextInputLayout-->
+                        <!--                            android:id="@+id/il_categoryButton"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center"-->
+                        <!--                            android:layout_marginTop="@dimen/marginBtnView"-->
+                        <!--                            android:hint="@string/category"-->
+                        <!--                            app:boxBackgroundColor="@color/white"-->
+                        <!--                            app:boxStrokeWidth="0.5dp"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toTopOf="parent">-->
+
+                        <!--                            <com.google.android.material.textfield.TextInputEditText-->
+                        <!--                                android:id="@+id/categoryButton"-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:text="@{vm.selectCatText}"-->
+                        <!--                                android:inputType="textEmailAddress" />-->
+
+                        <!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/categoryButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:text="@{vm.selectCatText}"
+                            app:editable="false"
+                            app:hint="@string/category"
+                            app:label="@string/category"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/subcategoryButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.subCatState}"
+                            android:text="@{vm.selectSubCatText}"
+                            app:editable="false"
+                            app:hint="@string/subcategory"
+                            app:label="@string/subcategory"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/typeButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.typeState}"
+                            android:text="@{vm.selectedTypeText}"
+                            app:editable="false"
+                            app:hint="@string/type"
+                            app:label="@string/type"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/propertiesButtonRegion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.regionState}"
+                            android:text="@{vm.selectRegionText}"
+                            app:editable="false"
+                            app:hint="@string/region"
+                            app:label="@string/region"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/propertiesButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.propertiesState}"
+                            android:text="@{vm.selectPropertiesText}"
+                            app:editable="false"
+                            app:hint="@string/region_number_of_rooms_number_of_bathrooms"
+                            app:label="@string/region_number_of_rooms_number_of_bathrooms"
+                            app:show_label="false" />
+
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/space_EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="@{vm.etspace}"
+                            android:visibility="gone"
+                            app:hint="@string/space_hint"
+                            app:label="@string/space_hint"
+                            app:show_label="false" />
+
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/carAttrButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.carCatState}"
+                            android:text="@{vm.selectCarText}"
+                            app:editable="false"
+                            app:hint="@string/year_make_model_sub_model"
+                            app:label="@string/year_make_model_sub_model"
+                            app:show_label="false" />
+
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/ed_km"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.carCatState}"
+                            android:text="@{vm.selectCarMotionAndEnginAnKmText}"
+                            app:editable="false"
+                            app:hint="@string/motion_engine_km"
+                            app:label="@string/motion_engine_km"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/ed_engine_drive_fuel_color"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.carCatState}"
+                            android:text="@{vm.selectCarEngineAndColorAndFuelText}"
+                            app:editable="false"
+                            app:hint="@string/engine_color_fuel"
+                            app:label="@string/engine_color_fuel"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/ed_car_show"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:is_visible="@{vm.carCatState}"
+                            app:editable="false"
+                            app:hint="المعرض"
+                            app:label="المعرض"
+                            app:show_label="false" />
+
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/detailsTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:lines="5"
+                            android:singleLine="false"
+                            android:text="@{vm.etDesc}"
+                            app:hint="@string/details_hint"
+                            app:label="@string/details_hint"
+                            app:show_label="false" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_step_three"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/ed_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/normalMargin"
+                            android:inputType="number"
+                            android:text="@{vm.etPrice}"
+                            app:hint="@string/price"
+                            app:label="@string/price"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/cityLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:text="@{vm.selectedCityAdLocationText}"
+                            app:editable="false"
+                            app:hint="@string/city"
+                            app:label="@string/city"
+                            app:show_label="false" />
+
+                        <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
+                            android:id="@+id/locationButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:is_visible="@{vm.selectedCat!=null? vm.selectedCat.isLocationRequired  : false}"
+                            android:text="@{vm.address}"
+                            app:editable="false"
+                            app:hint="@string/select_ad_location"
+                            app:label="@string/select_ad_location"
+                            app:show_label="false" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/ll_allow_comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/NormalTextViewStyle"
+                                android:layout_weight="1"
+                                android:paddingStart="0dp"
+                                android:text="@string/allow_comments" />
+
+
+                            <ToggleButton
+                                android:id="@+id/toggle_allow_comments"
+                                android:layout_width="@dimen/toggle_w"
+                                android:layout_height="@dimen/toggle_h"
+                                android:layout_marginStart="@dimen/padding"
+                                android:background="@drawable/toggle"
+                                android:checked="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:textOff=""
+                                android:textOn=""
+                                android:visibility="visible" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/normalMargin"
+                                android:text="@string/location_appear_hint"
+                                android:textColor="@color/hint_1"
+                                android:textSize="12sp" />
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/normalMargin"
+                                android:cropToPadding="true"
+                                android:src="@drawable/img_location_example"
+                                app:riv_corner_radius="@dimen/halfMargin" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </ScrollView>
+
+            <!-- App Info -->
+            <LinearLayout
+                android:id="@+id/bottomView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/default_margin">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/marginBtnView"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <View
+                            android:id="@+id/view_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="@drawable/progress_view_selected" />
+
+
+                        <TextView
+                            android:id="@+id/tv_view_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:padding="2dp"
+                            android:text="@string/one_photo"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/marginBtnView"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <View
+                            android:id="@+id/view_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="@drawable/progress_view_un_selected" />
+
+
+                        <TextView
+                            android:id="@+id/tv_view_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:padding="2dp"
+                            android:text="@string/two_details"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <View
+                            android:id="@+id/view_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="@drawable/progress_view_un_selected" />
+
+
+                        <TextView
+                            android:id="@+id/tv_view_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:padding="2dp"
+                            android:text="@string/three_price"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/publishButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/halfMargin"
+                    android:text="@string/publish"
+                    android:textAllCaps="false"
+                    android:textColor="@color/btn_txt_color"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/btn_main_bg"
+                    app:cornerRadius="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_half_margin"
+                    android:text="@string/publish_notes"
+                    android:textAlignment="center"
+                    android:textColor="@color/hint_1"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

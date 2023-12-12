@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+  >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <com.aelzohry.topsaleqatar.utils.RoundedView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:bottomLeftCornerRadius="10dp"
+        app:bottomRightCornerRadius="10dp"
+        app:topLeftCornerRadius="10dp"
+        app:topRightCornerRadius="10dp">
+
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_template_1" />
+
+        <ImageView
+            android:id="@+id/img_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/custom_selected_photo"
+            android:visibility="gone" />
+
+        <TextView
+            android:layoutDirection="ltr"
+            android:textDirection="ltr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="-20dp"
+            android:maxLength="12"
+            android:text="12345678912" />
+
+
+    </com.aelzohry.topsaleqatar.utils.RoundedView>
+    </FrameLayout>
+
+
+</layout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="model" type="String"/>
+    </data>
+    <TextView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:id="@+id/tv"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="@color/mainColor"
+            android:text=""
+            android:foreground="?android:selectableItemBackground"
+            android:background="?android:selectableItemBackground"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"/>
+</layout>

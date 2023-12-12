@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "98837489924",
+    "firebase_url": "https://topsaleqatar.firebaseio.com",
+    "project_id": "topsaleqatar",
+    "storage_bucket": "topsaleqatar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98837489924:android:9bda7448af38825e440851",
+        "android_client_info": {
+          "package_name": "com.aelzohry.topsaleqatar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98837489924-j6lhgl2d784io648rvivn5d2ba0lms25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJZKc5GrK-WTSLjEOjEsWxWJ8KzuBR-zM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98837489924-j6lhgl2d784io648rvivn5d2ba0lms25.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "98837489924-0lij9mdc80bc3vfb5j5i3hdpoisvpbad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aelzohry.qatartopsale",
+                "app_store_id": "1161177948"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98837489924:android:131306289ab37319440851",
+        "android_client_info": {
+          "package_name": "qa.topsale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98837489924-j6lhgl2d784io648rvivn5d2ba0lms25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJZKc5GrK-WTSLjEOjEsWxWJ8KzuBR-zM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98837489924-j6lhgl2d784io648rvivn5d2ba0lms25.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "98837489924-0lij9mdc80bc3vfb5j5i3hdpoisvpbad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aelzohry.qatartopsale",
+                "app_store_id": "1161177948"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

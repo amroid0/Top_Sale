@@ -1,0 +1,330 @@
+<resources>
+    <string name="app_name">Top Sale</string>
+    <string name="app_version">v%s</string>
+    <string name="app_rights">By using this application you have accepted the terms of use of the application\nTop Sale reserves the right to collect the statistical information relating to the use of the application and user activities</string>
+    <string name="places_api_key" translatable="false">AIzaSyDA9AYnlXQ5ysrifNFT6MnaVSYl-rJQWcI</string>
+
+    <string name="IndicatorName" translatable="false">BallScaleIndicator</string>
+
+    <!--Validations-->
+    <string name="requiredField">Required field</string>
+    <string name="invalidEmail">Invalid email</string>
+    <string name="invalidPhone">Invalid phone</string>
+    <string name="shortPass">Short password</string>
+    <string name="noMatchPassword">No match password</string>
+    <string name="invalidValue">Invalid value</string>
+    <string name="youMustLogin">You must login first</string>
+
+    <!--actions-->
+    <string name="confirm">Confirm</string>
+    <string name="skip">Skip</string>
+    <string name="request">Order</string>
+    <string name="add">Add</string>
+    <string name="select">Select</string>
+    <string name="search_here">Search here</string>
+    <string name="loading">Loading…</string>
+
+    <string name="full_name">Full Name</string>
+    <string name="country_code">+974</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="terms">By registering in Qatar Top Sales App,%sYou Accept <![CDATA[<font color=\'#000\'>Terms of Use</font>]]></string>
+    <string name="required">required</string>
+    <string name="verify">Verify</string>
+    <string name="send_code_again">Send Code Again</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="login">Login</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="help">Help</string>
+    <string name="terms_and_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="contact_us">Contact Us</string>
+    <string name="share_app">Share App</string>
+    <string name="language">Language</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="followings">Followings</string>
+    <string name="followers">Followers</string>
+    <string name="favorites">Favorites</string>
+    <string name="my_ads">My Ads</string>
+    <string name="blocked">Blocked</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="no_data">No Data</string>
+    <string name="unblock">Unblock</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="edit">Edit</string>
+    <string name="bio_title">Bio (Optional)</string>
+    <string name="bio_hint">Bio</string>
+    <string name="email_hint">Email</string>
+    <string name="email_title">Email (Optional)</string>
+    <string name="name_hint">Name</string>
+    <string name="name_title">Name (Required)</string>
+    <string name="delete">Delete</string>
+    <string name="republish">Republish</string>
+    <string name="ad_current_image_content_description">Ad Current Image</string>
+    <string name="report">Report</string>
+    <string name="currency">QAR</string>
+    <string name="description">Description :</string>
+    <string name="starred_ad">Starred Ad</string>
+    <string name="safety_tips">Safety Tips :</string>
+    <string name="safety_tips_body">- Make sure the product is safe and free of defects before buying and beware of unrealistic offers.\n- Do not share your personal information or personal data related to the bank account.</string>
+    <string name="car_km">KM</string>
+    <string name="car_year">Year</string>
+    <string name="car_model">Model</string>
+    <string name="car_sub_model">Car Category</string>
+    <string name="car_make">Make</string>
+    <string name="car_make_1">Make</string>
+    <string name="action_successful">Action successful</string>
+
+    <string name="motion_engine_km">Motion Vector,Engine size,Km</string>
+    <string name="motion_vector">Motion Vector</string>
+    <string name="engine_size">Engine size</string>
+
+
+    <string name="motion_vector_error">Please Select Motion Vector</string>
+    <string name="engine_size_error">Please Select Engine size</string>
+
+    <string name="engine_drive_system_error">Please Select Engine Drive System</string>
+    <string name="car_color_error">Please Select Car Color</string>
+    <string name="fuel_type_error">Please Select Fuel Type</string>
+
+    <string name="region">Region</string>
+    <string name="type">Type</string>
+    <string name="category">Category</string>
+    <string name="related_ads">Related Ads</string>
+    <string name="ad_details">Ad Details</string>
+    <string name="gallery_image_content_description">gallery image</string>
+    <string name="block">Block</string>
+    <string name="call">Call</string>
+    <string name="message">Message</string>
+    <string name="email">Email</string>
+    <string name="follow">Follow</string>
+    <string name="cancel">Cancel</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+    <string name="suitable_reason">suitable reason</string>
+    <string name="favorite_button">Favorite Button</string>
+    <string name="added_recently_ads">Added Recently Ads</string>
+    <string name="categories">Categories</string>
+    <string name="doneLoadingAllAds">Done.. No More Ads</string>
+    <string name="home">Home</string>
+    <string name="search_options">Search Options</string>
+    <string name="keywords">Keywords</string>
+    <string name="apply">Apply</string>
+    <string name="all">All</string>
+    <string name="selected">selected</string>
+    <string name="reset">Reset</string>
+    <string name="more">More</string>
+    <string name="logout">Logout</string>
+    <string name="ok">Ok</string>
+    <string name="new_ad">New Ad</string>
+    <string name="publish">Publish</string>
+    <string name="publish_notes">Please make sure to post the ad by placing it in the correct section or else it will be deleted</string>
+    <string name="km_hint">KM</string>
+    <string name="unknown_address">Unknown Address</string>
+    <string name="distance_f" formatted="false">%s km around %s</string>
+
+    <string name="km_f" formatted="false">%s KM</string>
+    <string name="km_example" formatted="false">1 KM</string>
+
+    <string name="title_hint">Ad Title</string>
+    <string name="space_hint">Space</string>
+    <string name="price">Price</string>
+    <string name="price_range">Price range</string>
+    <string name="details">Details</string>
+    <string name="details_hint">Description (optional)</string>
+    <string name="price_hint">15000</string>
+    <string name="ad_title">Title</string>
+    <string name="default_image_description">Default Image</string>
+    <string name="photo_clear_note">The clearer the picture, the more demand and purchase</string>
+    <string name="click_on_image_to_edit">Click on the image to edit or delete</string>
+    <string name="make_default">Make Default</string>
+    <string name="show_image">Show Image</string>
+    <string name="without_photos">Without Photo(s)</string>
+    <string name="add_photos">Add Photo(s)</string>
+    <string name="like">Like/Dislike button</string>
+    <string name="share_ad">Share Ad Button</string>
+    <string name="share_by_facebook">Share by facebook button</string>
+    <string name="share_by_whatsapp">Share by whatsapp</string>
+    <string name="share_by_instagram">Share by instagram button</string>
+    <string name="share_by_twitter">Share by twitter button</string>
+    <string name="comments">Comments</string>
+    <string name="more_comments">Load more comments ...</string>
+    <string name="comment_actions_button">Comment Actions Button</string>
+    <string name="author">Author</string>
+    <string name="comment">comment</string>
+    <string name="edit_comment">Edit Comment</string>
+    <string name="edit_ad">Edit Ad</string>
+    <string name="save">Save</string>
+    <string name="all_tab">All</string>
+    <string name="chat_tab">Chat</string>
+    <string name="notifications_tab">Notifications</string>
+    <string name="messages">Messages</string>
+    <string name="arabic" translatable="false">العربية</string>
+    <string name="english" translatable="false">English</string>
+    <string name="subcategory">Subcategory</string>
+    <string name="chat_send">Send</string>
+    <string name="enter_message">Enter message...</string>
+    <string name="play_video">Play Video</string>
+    <string name="add_attachment">Add Attachment</string>
+    <string name="send_audio">Send Audio</string>
+    <string name="photo">Photo</string>
+    <string name="video">Video</string>
+    <string name="play_audio">Play Audio</string>
+    <string name="slide_to_cancel">Slide to cancel</string>
+    <string name="chat">Chat</string>
+    <string name="banner_content_description">Banner</string>
+    <string name="search">Search</string>
+    <string name="search_f" formatted="false">Search in %s</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="error_terms">Error: can\'t show terms now.</string>
+    <string name="add_ad">Add Ad</string>
+    <string name="activate_ad">Activate</string>
+    <string name="deactivate_ad">Deactivate</string>
+    <string name="reject_note">%s\nYou can update ad, then republish</string>
+    <string name="pending_approval">Pending Approval</string>
+    <string name="active">Active</string>
+    <string name="not_active">Not Active</string>
+    <string name="rejected">Rejected</string>
+    <string name="accept_call_permission">Please, accept call permission</string>
+    <string name="accept_storage_permission">Please, accept storage permission</string>
+    <string name="select_photos">Select Photo(s)</string>
+    <string name="need_permissions">Need Permissions</string>
+    <string name="permission_settings_message">This app needs (%s) permission(s) to use this feature. You can grant them in app settings.</string>
+    <string name="go_to_settings">GOTO SETTINGS</string>
+    <string name="storage">Storage</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="choose_image_from_gallery">Choose Image from gallery</string>
+    <string name="choose_video_from_gallery">Choose Video from gallery</string>
+    <string name="pic_image">Pic Image</string>
+    <string name="pic_video">Record Video</string>
+    <string name="microphone">Microphone</string>
+    <string name="call_permission">Call</string>
+    <string name="delete_ad">Delete Ad</string>
+    <string name="delete_img">Delete Image</string>
+    <string name="back">Back</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="delete_ad_message">You are about deleting ad. You cannot undo, Proceed?</string>
+    <string name="home_banner_desc">Banner</string>
+    <string name="ad_photo_desc">Ad Photo</string>
+    <string name="max_images_alert">You are allowed to add up to 15 images only</string>
+    <string name="options">Options</string>
+    <string name="select_category">Select category</string>
+    <string name="select_sub_category">Select sub category</string>
+    <string name="select_type">Select type</string>
+    <string name="select_make">Select make</string>
+    <string name="select_model">Select model</string>
+    <string name="select_year">Select year</string>
+    <string name="km_error">Please Select KM</string>
+    <string name="area_error">Enter area</string>
+    <string name="select_region">Select region</string>
+    <string name="enter_ad_name">Enter ad name</string>
+    <string name="enter_price">Enter price</string>
+    <string name="ads_price_error">Ads price must be larger zero</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="blocked_list">Blocked list</string>
+    <string name="user_ads">User ads</string>
+    <string name="show_all">Show all</string>
+    <string name="enter_comment">Enter comment</string>
+    <string name="search_home">Search in top sale</string>
+    <string name="mobile">Mobile</string>
+    <string name="next">Next</string>
+    <string name="login_msg">Please enter your Qatari mobile number To use this feature, please enter your mobile number in English</string>
+    <string name="you_must_enter_phone_number">You must enter phone number</string>
+    <string name="enter_verfication_cdoe">Enter verification code</string>
+    <string name="rooms_numbers">Rooms</string>
+    <string name="bath_room_number">Bathroom</string>
+    <string name="room_error">Enter rooms number</string>
+    <string name="bath_room_error">Enter bathrooms number</string>
+    <string name="share_profile">Share profile</string>
+    <string name="latest">Newest ( Default )</string>
+    <string name="closest">Closest</string>
+    <string name="lowest_price">Price : Low to high </string>
+    <string name="higher_price">Price : High to low</string>
+    <string name="model_newest">Model : Newest</string>
+    <string name="minimum_mileage">Mileage : Lowest</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="min">Min</string>
+    <string name="max">Max</string>
+    <string name="posted">Posted</string>
+    <string name="share_post_text">Share your post to get more views</string>
+    <string name="post_another_ad">Post another ad</string>
+    <string name="done">Done</string>
+    <string name="select_ad_location">Enter ad location</string>
+    <string name="select_your_location">Enter your location</string>
+    <string name="select_ad_location_btn">Select location</string>
+    <string name="location_added">location added</string>
+    <string name="sort">Sort</string>
+    <string name="filter">Filters</string>
+    <string name="year_make_model">Year , Make , Model</string>
+    <string name="year_make_model_sub_model">Year , Make , Model , Category</string>
+    <string name="make_model_sub_model"> Make , Model , Category</string>
+    <string name="engine_color_fuel">Engine Drive System , Fuel Type , Car Color</string>
+
+    <string name="engine_drive_system">Engine Drive System</string>
+    <string name="car_color">Car Color</string>
+    <string name="fuel_type">Fuel Type</string>
+
+    <!--    <string name="region_number_of_rooms_number_of_bathrooms">Region , Number of rooms , number of bathrooms</string>-->
+    <string name="region_number_of_rooms_number_of_bathrooms">Number of rooms , number of bathrooms</string>
+    <string name="room">Room</string>
+    <string name="bath_room">Bathroom</string>
+    <string name="more_bath_room">More</string>
+    <string name="current_location">Current location</string>
+    <string name="location">Location</string>
+    <string name="location_optional">Location (Optional)</string>
+    <string name="ads_count">Ads count</string>
+    <string name="pick_image_intent_text">pick_image_intent_text</string>
+    <string name="location_err">We cannot get your location now , please try again later</string>
+    <string name="choose_camera">Capture image</string>
+    <string name="choose_camera_or_video">Capture image or video</string>
+    <string name="only_one_video">You can\'t add more than one video</string>
+    <string name="choose_gallery">Choose image</string>
+    <string name="limit_reached">Limit Reached!</string>
+    <string name="nothing_selected">Nothing Selected</string>
+
+    <string name="one_photo">1. Photo</string>
+    <string name="two_details">2. details</string>
+    <string name="three_price">3. price</string>
+
+    <string name="for_more_details">You can find more details on the Top Sale app</string>
+
+    <!-- custom photos screen -->
+    <string name="choose_custom_photo">Choose Custom Photo</string>
+    <string name="custom_photos">Custom Photos</string>
+    <string name="custom_photo">Custom Photo</string>
+    <string name="please_select_one_of_custom_photos">Please choose one of the custom images shown below</string>
+    <string name="please_select_custom_photos">Please choose one of the custom images</string>
+
+    <string name="call_item">Call</string>
+    <string name="msg_item">Send Text Message</string>
+    <string name="email_item">Send Email</string>
+    <string name="chat_item">Chat</string>
+    <string name="whatsapp_item">Whatsapp</string>
+    <string name="copy_item">Copy Number</string>
+    <string name="copied_to_clipborad">Copied to clipboard</string>
+
+    <string name="location_appear_hint">When choosing a location, it will not appear accurately, and the location will appear approximate, in order to preserve the privacy of the user, and the goal is to reach the target group and obtain the highest sales.\nBelow is an example of how the location appears to the user.</string>
+
+    <string name="location_not_supported">The location you have selected is unsupported at this time.</string>
+    <string name="type_your_address">Type your address</string>
+    <string name="choose_your_address">Click here to choose the address you want to search around</string>
+    <string name="allow_comments">Allow Comments</string>
+    <string name="city_location">City for view Ad</string>
+    <string name="city">City</string>
+    <string name="error">حدث خطأ ما، الرجاء المحاولة فيما بعد</string>
+    <string name="for_rent">For Rent</string>
+    <string name="for_sale">For Sale</string>
+    <string name="aqar_type">Aqar Type</string>
+
+    <string name="car_show_list">Car Shows</string>
+    <string name="failLoadImg">Error in load pic</string>
+
+    <string name="ad_location">Ad Location</string>
+    <string name="my_location">My Location</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

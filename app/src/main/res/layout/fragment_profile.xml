@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.utils.base.BaseViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/toolbar" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg"
+            android:padding="8dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".ui.more.profile.ProfileFragment">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center|top"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/avatarImageView"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginEnd="15dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/avatar" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:elevation="1dp"
+                            android:id="@+id/iv_delete"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|bottom"
+                            android:background="@drawable/circel_white"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_delete_image"
+                            android:tint="@color/ios_red" />
+                    </FrameLayout>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/normalMargin">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableStart="@drawable/ic_person_white_24dp"
+                                android:drawablePadding="@dimen/default_half_margin"
+                                android:drawableTint="@color/text_color_black"
+                                android:text="@string/name_title"
+                                android:textColor="@color/text_color_black" />
+
+                            <EditText
+                                android:id="@+id/nameEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/new_ad_bg"
+                                android:hint="@string/name_hint"
+                                android:importantForAutofill="no"
+                                android:inputType="textPersonName"
+                                android:lines="1"
+                                android:minHeight="40dp"
+                                android:padding="8dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/ad_input_text_size" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/normalMargin"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableStart="@drawable/ic_map"
+                                android:drawablePadding="@dimen/default_half_margin"
+                                android:drawableTint="@color/text_color_black"
+                                android:text="@string/location_optional"
+                                android:textColor="@color/text_color_black" />
+
+                            <TextView
+                                android:id="@+id/locationButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/marginBtnView"
+                                android:background="@drawable/new_ad_bg"
+                                android:gravity="center"
+                                android:hint="@string/select_your_location"
+                                android:minHeight="40dp"
+                                android:padding="8dp"
+                                android:textColor="@color/text_color_black" />
+
+                        </LinearLayout>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    <!-- Name -->
+
+
+                    <!-- Email -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_email_white_24dp"
+                            android:drawablePadding="@dimen/default_half_margin"
+                            android:drawableTint="@color/text_color_black"
+                            android:text="@string/email_title"
+                            android:textColor="@color/text_color_black" />
+
+                        <EditText
+                            android:id="@+id/emailEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/new_ad_bg"
+                            android:hint="@string/email_hint"
+                            android:importantForAutofill="no"
+                            android:inputType="textEmailAddress"
+                            android:lines="1"
+                            android:minHeight="40dp"
+                            android:padding="8dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/ad_input_text_size" />
+
+                    </LinearLayout>
+
+                    <!-- Bio -->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_note_white_24dp"
+                            android:drawablePadding="@dimen/default_half_margin"
+                            android:drawableTint="@color/text_color_black"
+                            android:text="@string/bio_title"
+                            android:textColor="@color/text_color_black" />
+
+                        <EditText
+                            android:id="@+id/bioEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/new_ad_bg"
+                            android:gravity="top|start"
+                            android:hint="@string/bio_hint"
+                            android:importantForAutofill="no"
+                            android:inputType="text|textMultiLine"
+                            android:lines="1"
+                            android:minHeight="40dp"
+                            android:minLines="5"
+                            android:padding="8dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/ad_input_text_size" />
+
+                    </LinearLayout>
+
+
+                    <!-- Edit Button -->
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/editButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="@string/edit"
+                        android:textAllCaps="false"
+                        android:textColor="@color/btn_txt_color"
+                        android:textSize="14sp"
+                        app:backgroundTint="@color/btn_main_bg"
+                        app:cornerRadius="8dp"
+                        app:icon="@drawable/ic_edit_white_24dp"
+                        app:iconSize="16dp"
+                        app:iconTint="@color/btn_main_icon_color" />
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.selectLocationDialog.view.AdsLocationDialogFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_rect_top"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        android:textDirection="rtl">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="16dp"
+                android:src="@drawable/ic_close_black_24dp"
+                app:tint="@color/text_color_black" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/custom_text_view_press"
+                android:text="@string/select_ad_location_btn"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/textSizeTitle" />
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="ltr"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/extraMargin"
+            android:paddingTop="@dimen/normalMargin"
+            android:paddingEnd="@dimen/extraMargin"
+            android:paddingBottom="@dimen/extraMargin"
+            android:textDirection="ltr">
+
+
+            <!--            <ScrollView-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:id="@+id/scrollView"-->
+            <!--                android:fillViewport="true"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent">-->
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/normalMargin"
+                    app:cardElevation="0dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <fragment
+                            android:id="@+id/map"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            class="com.aelzohry.topsaleqatar.utils.WorkaroundMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:id="@+id/img_pin_marker"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_marker" />
+                    </FrameLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <vn.nms.dynamic_seekbar.DynamicSeekBarView
+                    android:id="@+id/dynamicSeekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginBtnView"
+                    android:max="200"
+                    android:textDirection="rtl"
+                    app:dsbv_infoBackgroundColor="@color/colorAccent"
+                    app:dsbv_infoInitText="@string/km_example"
+                    app:dsbv_infoRadius="20"
+                    app:dsbv_infoTextColor="@android:color/white"
+                    app:dsbv_infoTextSize="12dp"
+                    app:dsbv_max="200"
+                    app:dsbv_progress="1"
+                    app:dsbv_progressBackgroundColor="@color/gray_bold"
+                    app:dsbv_progressColor="@color/colorAccent"
+                    app:dsbv_thumbDrawable="@drawable/ic_circle" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <!--            </ScrollView>-->
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginBtnView"
+                android:gravity="center"
+                android:weightSum="3">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_apply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/select"
+                    android:textAllCaps="false"
+                    android:textColor="@color/btn_txt_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/btn_main_bg"
+                    app:cornerRadius="@dimen/halfMargin" />
+
+                <View
+                    android:layout_width="@dimen/smallMargin"
+                    android:layout_height="@dimen/smallMargin" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/back"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/gray_1"
+                    app:cornerRadius="@dimen/halfMargin" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

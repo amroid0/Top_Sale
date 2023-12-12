@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/containerLayout"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="@dimen/default_half_margin"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:layout_marginBottom="@dimen/default_half_margin"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_half_margin"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/bodyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:textColor="@color/text_color_black"
+                android:textSize="12sp"
+                tools:text="Body" />
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAlignment="viewStart"
+                android:textSize="12sp"
+                android:textColor="@color/hint_1"
+                tools:text="Date" />
+
+            <LinearLayout
+                android:id="@+id/lastMessageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <TextView
+                    android:id="@+id/messageUserTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="12sp"
+                    tools:text="User" />
+
+
+                <TextView
+                    android:id="@+id/messageBodyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="viewStart"
+                    android:textSize="12sp"
+                    android:textColor="@color/hint_1"
+                    tools:text="Message Body" />
+
+                <TextView
+                    android:id="@+id/messageDataTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/hint_1"
+                    android:textSize="12sp"
+                    tools:text="Date" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/adImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:layout_marginEnd="@dimen/default_half_margin"
+            android:layout_marginBottom="@dimen/default_half_margin"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/logo"
+            android:visibility="gone"
+            app:riv_corner_radius="8dp"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.aelzohry.topsaleqatar.model.Banner" />
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.utils.base.BaseViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:onClick="@{(v)->vm.onAdBannerClickedListener(v,model)}"
+        android:paddingVertical="@dimen/default_quarter_margin">
+
+
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/ad_photo_desc"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loading"
+            style="@style/AVLoadingIndicatorView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:indicatorName="@string/IndicatorName"
+            app:indicatorColor="@color/mainColor" />
+
+
+    </FrameLayout>
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:paddingVertical="@dimen/default_quarter_margin">-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:contentDescription="@string/banner_content_description"-->
+    <!--            android:cropToPadding="true"-->
+    <!--            android:scaleType="centerCrop"-->
+    <!--            app:layout_constraintDimensionRatio="500:140"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+</layout>

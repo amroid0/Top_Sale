@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.aelzohry.topsaleqatar.utils.RoundedView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:bottomLeftCornerRadius="@dimen/halfMargin"
+            app:bottomRightCornerRadius="@dimen/halfMargin"
+            app:topLeftCornerRadius="@dimen/halfMargin"
+            app:topRightCornerRadius="@dimen/halfMargin">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@color/black" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/custom_selected_photo" />
+
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:maxLength="250"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is dummy Text For testing not real data, only to test if it inside width , so here is  alot of text that is not meaning any thing, try to write your text to show it here, if you ar like this , do more and do more try alot with no stop in writing this fake text till you tired fro, wiriting, this is enough"/>
+
+    </com.aelzohry.topsaleqatar.utils.RoundedView>
+    </FrameLayout>
+
+
+</layout>

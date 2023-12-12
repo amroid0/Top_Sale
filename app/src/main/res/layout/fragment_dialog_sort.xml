@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_rect_top"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/sort"
+                android:textColor="@color/text_color_black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/ib_close"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@null"
+                android:src="@drawable/ic_close_black_24dp"
+                app:tint="@color/colorAccent" />
+        </RelativeLayout>
+
+
+        <RadioGroup
+            android:id="@+id/rg_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_marginTop="@dimen/smallMargin"
+                android:foreground="?android:selectableItemBackground"
+                android:id="@+id/rb_latest"
+                android:checked="true"
+                android:textColor="@color/text_color_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/latest"/>
+
+            <RadioButton
+                android:layout_marginTop="@dimen/smallMargin"
+                android:foreground="?android:selectableItemBackground"
+                android:id="@+id/rb_closest"
+                android:textColor="@color/text_color_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/closest"/>
+
+            <RadioButton
+                android:layout_marginTop="@dimen/smallMargin"
+                android:foreground="?android:selectableItemBackground"
+                android:id="@+id/rb_lowest_price"
+                android:textColor="@color/text_color_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lowest_price"/>
+
+            <RadioButton
+                android:layout_marginTop="@dimen/smallMargin"
+                android:foreground="?android:selectableItemBackground"
+                android:id="@+id/rb_higher_price"
+                android:textColor="@color/text_color_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/higher_price"/>
+
+        </RadioGroup>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

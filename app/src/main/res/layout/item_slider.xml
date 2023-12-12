@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/slider_h"
+    android:clickable="true"
+    android:focusable="true"
+    android:textDirection="ltr"
+    android:layoutDirection="ltr"
+    android:orientation="vertical"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="@dimen/normalMargin"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/shap_rect_grey" />-->
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/NormalTextViewStyle"
+            android:layout_alignParentBottom="true"
+            tools:text="mkn.dcnksV" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

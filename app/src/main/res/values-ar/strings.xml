@@ -1,0 +1,335 @@
+<resources>
+    <string name="app_name">توب سيل</string>
+    <string name="app_version">v%s</string>
+    <string name="app_rights">بإستخدامك هذا التطبيق تكون قد قبلت شروط إستخدام التطبيق.\nتحتفظ توب سيل بالحق في جمع معلومات إحصائية متعلقة بإستخدام التطبيق ونشاطات المستخدمين عليه</string>
+    <string name="full_name">الاسم بالكامل</string>
+    <string name="country_code">+974</string>
+    <string name="sign_up">تسجيل</string>
+    <string name="terms">باشتراكك في تطبيق توب سيل،%sأنت توافق على <![CDATA[<font color=\'#000\'>شروط الإستخدام</font>]]></string>
+
+    <!--Validations-->
+    <string name="requiredField">حقل مطلوب</string>
+    <string name="invalidEmail">بريد إلكتروني غير صالح</string>
+    <string name="invalidPhone">هاتف غير صالح</string>
+    <string name="shortPass">كلمة المرور قصيرة</string>
+    <string name="noMatchPassword">كلمة المرور غير متطابقة</string>
+    <string name="invalidValue">قيمه غير صالحة</string>
+    <string name="youMustLogin">يجب تسجيل الدخول أولا</string>
+
+    <!--actions-->
+    <string name="confirm">تأكيد</string>
+    <string name="skip">تخطي التسجيل</string>
+    <string name="request">طلب</string>
+    <string name="select">اختر</string>
+    <string name="add">إضافة</string>
+    <string name="search_here">ابحث هنا</string>
+    <string name="loading">جاري التحميل</string>
+
+
+    <string name="required">required</string>
+    <string name="verify">تأكيد</string>
+    <string name="send_code_again">أرسل الكود مجدداً</string>
+    <string name="verification_code">كود التفعيل</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="edit_profile">تعديل الملف الشخصي</string>
+    <string name="help">مساعدة</string>
+    <string name="terms_and_conditions"><![CDATA[شروط الإستخدام]]></string>
+    <string name="contact_us">تواصل معنا</string>
+    <string name="share_app">شارك التطبيق</string>
+    <string name="language">اللغة</string>
+    <string name="followings">متابَعون</string>
+    <string name="followers">متابِعون</string>
+    <string name="favorites">المفضلة</string>
+    <string name="my_ads">إعلاناتي</string>
+    <string name="blocked">محظورون</string>
+    <string name="unfollow">إلغاء المتابعة</string>
+    <string name="no_data">لا توجد بيانات</string>
+    <string name="unblock">إلغاء حظر</string>
+    <string name="profile">الحساب</string>
+    <string name="update">تحديث</string>
+    <string name="edit">تحرير</string>
+    <string name="bio_title">نبذة عنك (اختياري)</string>
+    <string name="bio_hint">نبذة</string>
+    <string name="email_hint">البريد الإلكتروني</string>
+    <string name="email_title">البريد الإلكتروني (اختياري)</string>
+    <string name="name_hint">الاسم</string>
+    <string name="name_title">الاسم (مطلوب)</string>
+    <string name="delete">حذف</string>
+    <string name="republish">إعادة نشر</string>
+    <string name="ad_current_image_content_description">صورة الإعلان الحالية</string>
+    <string name="report">إبلاغ</string>
+    <string name="currency">ر.ق.</string>
+    <string name="description"> مواصفات الاعلان :</string>
+    <string name="starred_ad">إعلان مميز</string>
+    <string name="safety_tips">نصائح للسلامة :</string>
+    <string name="safety_tips_body">- تأكد من سلامة المنتج وخلوه من العيوب قبل الشراء واحذر من العروض غير الواقعية.\n- لا تشارك أية معلوماتك أو بياناتك الشخصية المتعلقة بالحساب البنكي.</string>
+    <string name="car_km">كيلومترات</string>
+    <string name="car_year">سنة</string>
+    <string name="action_successful">تمت العملية بنجاح</string>
+
+    <string name="motion_engine_km">ناقل الحركة، سعة المحرك، كيلومترات</string>
+
+    <string name="motion_vector">ناقل الحركة</string>
+    <string name="engine_size">سعة المحرك</string>
+
+    <string name="motion_vector_error">من فضلك إختر ناقل الحركة</string>
+    <string name="engine_size_error">من فضلك إختر سعة المحرك</string>
+
+
+    <string name="engine_drive_system">نظام الدفع</string>
+    <string name="car_color">اللون</string>
+    <string name="fuel_type">نوع الوقود</string>
+
+    <string name="engine_drive_system_error">من فضلك إختر نظام الدفع</string>
+    <string name="car_color_error">من فضلك إختر اللون</string>
+    <string name="fuel_type_error"> من فضلك إخترنظام الوقود</string>
+
+
+    <string name="share">مشاركة</string>
+    <string name="car_model">موديل</string>
+    <string name="car_sub_model">الصنف</string>
+    <string name="car_make">صنع</string>
+    <string name="car_make_1">الصنع</string>
+    <string name="region">منطقة</string>
+    <string name="type">نوع</string>
+    <string name="category">قسم</string>
+    <string name="related_ads">إعلانات ذات صلة</string>
+    <string name="ad_details">تفاصيل الإعلان</string>
+    <string name="gallery_image_content_description">gallery image</string>
+    <string name="block">حظر</string>
+    <string name="call">اتصال</string>
+    <string name="message">رسالة</string>
+    <string name="email">إيميل</string>
+    <string name="follow">متابعة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="send">إرسال</string>
+    <string name="suitable_reason">سبب مناسب</string>
+    <string name="favorite_button">زر تفضيل</string>
+    <string name="added_recently_ads">الإعلانات المضافة حديثاً</string>
+    <string name="categories">الأقسام</string>
+    <string name="doneLoadingAllAds">انتهى… لا يوجد المزيد من الإعلانات</string>
+    <string name="home">الرئيسية</string>
+    <string name="search_options">خيارات البحث</string>
+    <string name="keywords">كلمات البحث</string>
+    <string name="apply">تطبيق</string>
+    <string name="all">الكل</string>
+    <string name="selected">محددة</string>
+    <string name="reset">افتراضي</string>
+    <string name="more">المزيد</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="ok">تم</string>
+    <string name="new_ad">إعلان جديد</string>
+    <string name="publish">نشر</string>
+    <string name="publish_notes">يرجى التأكد قبل نشر الإعلان من وضعه في القسم الصحيح وإلا سيتم حذفه</string>
+    <string name="km_hint">كيلومتر</string>
+    <string name="unknown_address">موقع غير معروف</string>
+    <string name="distance_f" formatted="false">%s كم حول   %s</string>
+
+    <string name="km_f" formatted="false"> كيلومتر %s </string>
+    <string name="km_example" formatted="false">1 كيلو متر</string>
+
+    <string name="title_hint">عنوان الإعلان</string>
+    <string name="space_hint">المساحه</string>
+    <string name="price">السعر</string>
+    <string name="details">التفاصيل</string>
+    <string name="details_hint">الوصف (إختيارى)</string>
+    <string name="price_hint">15000</string>
+    <string name="ad_title">العنوان</string>
+    <string name="default_image_description">الصورة الافتراضية</string>
+    <string name="photo_clear_note">كلما زاد وضوح الصورة، كلما زاد الطلب والشراء</string>
+    <string name="show_image">عرض الصورة</string>
+    <string name="make_default">صورة افتراضية</string>
+    <string name="without_photos">بدون صور</string>
+    <string name="add_photos">إضافة صورة</string>
+    <string name="like">زر إعجاب/إلغاء إعجاب</string>
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="share_ad">زر مشاركة إعلان</string>
+    <string name="share_by_facebook">زر مشاركة الإعلان بواسطة فيس بوك</string>
+    <string name="share_by_whatsapp">زر مشاركة الإعلان بواسطة واتس اب</string>
+    <string name="share_by_instagram">زر مشاركة الإعلان بواسطة انستجرام</string>
+    <string name="share_by_twitter">زر مشاركة الإعلان بواسطة تويتر</string>
+    <string name="comments">التعليقات</string>
+    <string name="more_comments">تحميل المزيد من التعليقات …</string>
+    <string name="comment_actions_button">Comment Actions Button</string>
+    <string name="author">الناشر</string>
+    <string name="comment">التعليق</string>
+    <string name="edit_comment">تحرير تعليق</string>
+    <string name="edit_ad">تحرير إعلان</string>
+    <string name="save">حفظ</string>
+    <string name="all_tab">الكل</string>
+    <string name="chat_tab">الشات</string>
+    <string name="notifications_tab">الإشعارات</string>
+    <string name="messages">الرسائل</string>
+    <string name="subcategory">القسم الفرعي</string>
+    <string name="chat_send">أرسل</string>
+    <string name="enter_message">أدخل الرسالة...</string>
+    <string name="play_video">تشغيل الفيديو</string>
+    <string name="add_attachment">أضف مرفق</string>
+    <string name="send_audio">أرسل رسالة صوتية</string>
+    <string name="photo">صورة</string>
+    <string name="video">فيديو</string>
+    <string name="play_audio">تشغيل مقطع صوتي</string>
+    <string name="slide_to_cancel">السحب للإلغاء</string>
+    <string name="chat">دردشة</string>
+    <string name="banner_content_description">بانر إعلاني</string>
+    <string name="search">بحث</string>
+    <string name="search_f" formatted="false">البحث في %s</string>
+    <string name="today">اليوم</string>
+    <string name="yesterday">الأمس</string>
+    <string name="error_terms">خطأ لا يمكن إظهار الشروط الآن</string>
+    <string name="add_ad">وضع إعلان</string>
+    <string name="activate_ad">تنشيط</string>
+    <string name="deactivate_ad">إلغاء تنشيط</string>
+    <string name="reject_note">%s\nيمكنك تعديل الإعلان وإعادة النشر مرة أخرى</string>
+    <string name="pending_approval">بانتظار الموافقة</string>
+    <string name="active">نشط</string>
+    <string name="not_active">غير نشط</string>
+    <string name="rejected">مرفوض</string>
+    <string name="accept_call_permission">من فضلك، أقبل إذن الاتصال</string>
+    <string name="accept_storage_permission">من فضلك، أقبل إذن التخزين</string>
+    <string name="select_photos">اختر صورة/صور</string>
+    <string name="need_permissions">يتطلب إذونات</string>
+    <string name="permission_settings_message">هذا التطبيق يتطلب إذن (%s) لإستخدام هذه الخاصية. تستطيع منح الإذن من إعدادات التطبيق بالنظام.</string>
+    <string name="go_to_settings">فتح الإعدادات</string>
+    <string name="storage">التخزين</string>
+    <string name="camera">الكاميرا</string>
+    <string name="gallery">معرض الصور</string>
+
+    <string name="choose_image_from_gallery">صورة من الاستوديو</string>
+    <string name="choose_video_from_gallery">فيديو من الاستوديو</string>
+    <string name="pic_image">التقط صورة</string>
+    <string name="pic_video">سجل فيديو</string>
+
+
+    <string name="microphone">المايكروفون</string>
+    <string name="call_permission">الاتصال</string>
+    <string name="delete_ad">حذف الإعلان</string>
+    <string name="delete_img">حذف الصورة</string>
+    <string name="back">عودة</string>
+    <string name="confirmation">تأكيد</string>
+    <string name="delete_ad_message">أنت على وشك حذف الإعلان. لن يمكنك التراجع، استمرار؟</string>
+    <string name="home_banner_desc">بانر</string>
+    <string name="ad_photo_desc">صورة الإعلان</string>
+    <string name="max_images_alert">مسموح لك بإضافة ١٥ صورة فقط كحد أقصى للإعلان</string>
+    <string name="blocked_list">قائمة الحظر</string>
+    <string name="options">الخيارات</string>
+    <string name="select_category">من فضلك إختر القسم الرئيسي</string>
+    <string name="select_sub_category">من فضلك إختر القسم الفرعي</string>
+    <string name="select_type">من فضلك إختر القسم النوع</string>
+    <string name="select_make">من فضلك غختر الصنع</string>
+    <string name="select_model">من فضلك إختر الموديل</string>
+    <string name="select_year">من فضلك إختر السنة </string>
+    <string name="km_error">من فضلك إختر عدد الكيلوميتر</string>
+    <string name="area_error">من فضلك أدخل المساحة</string>
+    <string name="select_region">من فضلك إختر المنطقة</string>
+    <string name="enter_ad_name">من فضلك أدخل عنوان الإعلان</string>
+    <string name="enter_price">من فضلك أدخل السعر</string>
+    <string name="ads_price_error">يجب أن يكون سعر الإعلان أكبر من صفر</string>
+    <string name="whatsapp">واتساب</string>
+    <string name="user_ads">إعلانات المستخدم</string>
+    <string name="show_all">مشاهدة الكل</string>
+    <string name="enter_comment">من فضلك أدخل نص التعليق</string>
+    <string name="search_home">ابحث في توب سيل</string>
+    <string name="mobile">رقم الجوال</string>
+    <string name="next">التالي</string>
+    <string name="login_msg">يرجي إدخال رقم جوالك القطري لإستخدام هذه الميزة، يرجي إدخال رقم الجوال باللغة الإنجليزية</string>
+    <string name="you_must_enter_phone_number">يجب إدخال رقم الجوال أولا</string>
+    <string name="enter_verfication_cdoe">أدخل كود التفعيل</string>
+    <string name="rooms_numbers">الغرف</string>
+    <string name="bath_room_number">دورات المياه</string>
+    <string name="room_error">من فضلك أدخل عدد الغرف</string>
+    <string name="bath_room_error">من فضلك أدخل عدد دورات المياه</string>
+    <string name="share_profile">مشاركة ملف مستخدم</string>
+    <string name="latest">الأحدث (الافتراضي)</string>
+    <string name="closest">الأقرب</string>
+    <string name="lowest_price">السعر : من الأقل إلى الأعلى</string>
+    <string name="higher_price">السعر : من الأعلى إلى الأقل</string>
+    <string name="model_newest">الموديل : الأحدث</string>
+    <string name="minimum_mileage">الأميال : الأدنى</string>
+    <string name="from">من</string>
+    <string name="to">إلى</string>
+    <string name="min">الأقل سعراً</string>
+    <string name="max">الأعلى سعراً</string>
+    <string name="posted">تم النشر</string>
+    <string name="share_post_text">شارك إعلانك للحصول علي المزيد من المشاهدات</string>
+    <string name="post_another_ad">إضافة إعلان أخر</string>
+    <string name="done">تم</string>
+    <string name="select_ad_location">أدخل موقع الإعلان</string>
+    <string name="select_your_location">أدخل موقعك</string>
+    <string name="select_ad_location_btn">إختر العنوان</string>
+    <string name="location_added">تم إضافة لوكيشن الإعلان</string>
+    <string name="price_range">متوسط السعر</string>
+    <string name="sort">الترتيب</string>
+    <string name="filter">الفلاتر</string>
+    <string name="year_make_model">السنة , الصنع والموديل</string>
+    <string name="year_make_model_sub_model">السنة , الصنع والموديل والصنف</string>
+    <string name="make_model_sub_model">الصنع والموديل والصنف</string>
+
+    <string name="engine_color_fuel">نظام الدفع , نوع الوقود , اللون</string>
+
+
+    <!--    <string name="region_number_of_rooms_number_of_bathrooms">المنطقة , عدد الغرف ودورات المياه</string>-->
+    <string name="region_number_of_rooms_number_of_bathrooms">عدد الغرف ودورات المياه</string>
+    <string name="room">غرفة</string>
+    <string name="bath_room">دورات المياه</string>
+    <string name="more_bath_room">أكثر من ذلك</string>
+    <string name="current_location">الموقع الحالي</string>
+    <string name="location">الموقع </string>
+    <string name="location_optional"> الموقع (اختياري)</string>
+
+    <string name="ads_count">عدد الإعلانات</string>
+    <string name="pick_image_intent_text">pick_image_intent_text</string>
+    <string name="location_err">لا يمكننا الحصول على موقعك الآن، يرجى المحاولة مرة أخرى لاحقًا</string>
+    <string name="choose_camera">التقاط الصورة</string>
+    <string name="choose_camera_or_video">اختر صورة أو فيديو</string>
+    <string name="only_one_video">لا يمكنك إضافة أكثر من فيديو</string>
+    <string name="choose_gallery">اختر صورة</string>
+    <string name="limit_reached">لقد وصلت الحد الأقصى!</string>
+    <string name="nothing_selected">لم يتم اختيار اي شيء</string>
+
+
+    <string name="one_photo">1. الصورة</string>
+    <string name="two_details">2. التفاصيل</string>
+    <string name="three_price">3. السعر</string>
+
+    <string name="for_more_details">يمكنك ايجاد المزيد من التفاصيل على تطبيق توب سيل</string>
+
+    <!-- custom photos screen -->
+    <string name="choose_custom_photo">اختر صورة مخصصة</string>
+    <string name="custom_photos">صور مخصصة</string>
+    <string name="custom_photo">صورة مخصصة</string>
+    <string name="please_select_one_of_custom_photos">الرجاء اختيار واحدة من الصور المخصصة الظاهرة بالأسفل</string>
+    <string name="please_select_custom_photos">الرجاء اختيار واحدة من الصور المخصصة</string>
+
+
+    <string name="call_item">اتصال</string>
+    <string name="msg_item">ارسال رسالة نصية</string>
+    <string name="email_item">ارسال بريد إلكتروني</string>
+    <string name="chat_item">دردشة</string>
+    <string name="whatsapp_item">واتساب</string>
+    <string name="copy_item">نسخ الرقم</string>
+    <string name="copied_to_clipborad">تم النسخ للحافظة</string>
+
+
+    <string name="location_appear_hint">عند اختيار الموقع لن يظهر بشكل دقيق وسيظهر الموقع بشكل تقريبي وذلك لحفظ خصوصية المستخدم والهدف من ذلك للوصول للفئة المستهدفة والحصول على أعلى المبيعات.\nبالأسفل مثال على شكل ظهور الموقع للمستخدم.</string>
+
+    <string name="location_not_supported">الموقع الذي حددته غير مدعوم في الوقت الحالي.</string>
+    <string name="type_your_address">ابحث عن الموقع هنا…</string>
+    <string name="choose_your_address">اضغط هنا لاختيار العنوان المراد البحث حوله</string>
+    <string name="allow_comments">تفعيل التعليقات</string>
+    <string name="city_location">المدينة التي سيظهر بها الإعلان</string>
+    <string name="city">المدينة</string>
+    <string name="error">حدث خطأ ما، الرجاء المحاولة فيما بعد</string>
+
+
+    <string name="ad_location">موقع الإعلان</string>
+    <string name="my_location">موقعي</string>
+    <string name="click_on_image_to_edit">اضغط على الصورة للتعديل أو الحذف</string>
+
+    <string name="for_rent">للإيجار</string>
+    <string name="for_sale">للبيع</string>
+    <string name="aqar_type">نوع العقار</string>
+
+    <string name="car_show_list">قائمة المعارض</string>
+
+</resources>

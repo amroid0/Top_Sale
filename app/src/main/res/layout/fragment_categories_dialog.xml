@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.categories.CategoriesViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/tajawal_bold"
+                android:text="@string/categories"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/ib_close"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@null"
+                android:src="@drawable/ic_close_black_24dp" />
+        </RelativeLayout>
+
+<!--        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--            app:onRefreshListener="@{()->vm.onSwipeRefreshListener()}"-->
+<!--            app:refreshing="@{vm.swipeRefresh}">-->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+            >
+<!--                android:frame_layout="@{@id/recyclerView}"-->
+
+                <!--                android:frame_state="@{vm.frameState}"-->
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingStart="1dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="1dp"
+                    android:paddingBottom="8dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/view_holder_category" />
+            </FrameLayout>
+
+<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:orientation="vertical"-->
+    <!--        tools:context=".ui.new_ad.categorisDialog.view.CategoriesDialogFragment">-->
+
+
+    <!--        <RelativeLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/tv_name"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_centerInParent="true"-->
+    <!--                android:fontFamily="@font/tajawal_bold"-->
+    <!--                android:text="@string/categories"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                android:textSize="16sp" />-->
+
+    <!--            <ImageButton-->
+    <!--                android:layout_width="?android:attr/actionBarSize"-->
+    <!--                android:layout_height="?android:attr/actionBarSize"-->
+    <!--                android:background="@null"-->
+    <!--                android:src="@drawable/ic_close_black_24dp" />-->
+    <!--        </RelativeLayout>-->
+
+
+    <!--        <View-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="0.5dp"-->
+    <!--            android:background="@color/hint" />-->
+
+
+    <!--        <androidx.appcompat.widget.LinearLayoutCompat-->
+    <!--            android:id="@+id/ll_container"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:paddingStart="10dp">-->
+
+    <!--            <include layout="@layout/item_category" />-->
+
+    <!--            <include layout="@layout/item_category" />-->
+
+    <!--            <include layout="@layout/item_category" />-->
+
+    <!--            <include layout="@layout/item_category" />-->
+    <!--        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+    <!--    </LinearLayout>-->
+</layout>

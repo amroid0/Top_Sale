@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginEnd="@dimen/smallMargin"
+            android:id="@+id/f_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/filter_item_un_selected"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/normalMargin"
+            android:paddingTop="@dimen/smallMargin"
+            android:paddingEnd="@dimen/normalMargin"
+            android:paddingBottom="@dimen/smallMargin">
+
+            <TextView
+                android:id="@+id/tv_text"
+                style="@style/NormalTextViewStyle"
+                android:padding="0dp"
+                tools:text="قطر" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

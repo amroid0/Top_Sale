@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.utils.base.BaseViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".ui.new_ad.finishAd.FinishActivity">
+
+        <include layout="@layout/toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:riv_corner_radius="8dp" />
+
+            <Button
+                android:id="@+id/btn_share"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/share_post_text"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:cornerRadius="5dp"
+                app:strokeColor="@color/btn_main_bg"
+                app:strokeWidth="1sp" />
+
+            <Button
+                android:id="@+id/btn_new_ad"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/post_another_ad"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/ef_ic_camera_white"
+                app:iconGravity="textEnd"
+
+                />
+
+            <Button
+                android:id="@+id/btn_done"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/done"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+
+                />
+
+
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

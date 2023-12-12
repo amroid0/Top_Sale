@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundedView">
+        <attr name="topLeftCornerRadius" format="dimension" />
+        <attr name="topRightCornerRadius" format="dimension" />
+        <attr name="bottomLeftCornerRadius" format="dimension" />
+        <attr name="bottomRightCornerRadius" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MyCustomEditText">
+        <attr name="show_password_toggle" format="boolean" />
+        <attr name="show_country_code" format="boolean" />
+        <attr name="show_edit_text_icon" format="boolean" />
+        <attr name="show_label" format="boolean" />
+        <attr name="is_password" format="boolean" />
+        <attr name="editable" format="boolean" />
+
+        <attr name="password_toggle_icon" format="integer" />
+        <attr name="edit_text_icon_icon" format="reference" />
+        <attr name="password_toggle_icon_position" format="integer" />
+        <attr name="edit_text_icon_icon_position" format="integer" />
+        <attr name="padding_start" format="integer" />
+
+
+        <attr name="hint" format="string" />
+        <attr name="text" format="string" />
+        <attr name="label" format="string" />
+        <attr name="error" format="string" />
+
+
+        <attr name="android:inputType" />
+        <attr name="android:lines"/>
+        <attr name="android:gravity"/>
+        <attr name="android:singleLine"/>
+        <attr name="android:paddingStart"/>
+        <attr name="android:maxLength"/>
+        <attr name="android:imeOptions"/>
+
+
+
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.aelzohry.topsaleqatar.model.TMessage" />
+
+        <import type="com.aelzohry.topsaleqatar.ui.messages.adapter.MessagesAdapter.MessageState" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.messages.vm.ChatViewModel" />
+
+        <variable
+            name="i"
+            type="Integer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/default_quarter_margin"
+        android:paddingVertical="@dimen/default_half_margin">
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/default_half_margin"
+            android:textColor="@color/text_color_black"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Oct 02,2018"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/bodyLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="240dp"
+                android:orientation="horizontal">
+
+
+                <!--       Text -->
+                <TextView
+                    android:id="@+id/bodyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bubble_sent_background"
+                    android:maxWidth="240dp"
+                    android:padding="8dp"
+                    android:text="@{model.body}"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="12sp"
+                    android:visibility="@{model.messageState == MessageState.TEXT?View.VISIBLE:View.GONE}"
+                    tools:text="hello, hello!hello, hello!hello, hello!hello, hello!hello, hello!hello, hello!hello, hello!hello, hello!hello, hello!hello, hello!"
+                    tools:visibility="gone" />
+
+                <!--       Image -->
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/bodyImageView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginEnd="8dp"
+                    android:load_image="@{model.attachmentUrl}"
+                    android:onClick="@{(v)->vm.onImageClickedListener(v,model)}"
+                    android:scaleType="centerCrop"
+                    android:visibility="@{model.messageState == MessageState.PHOTO?View.VISIBLE:View.GONE}"
+                    app:riv_corner_radius="8dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/avatar"
+                    tools:visibility="gone" />
+
+                <!--       Video -->
+                <RelativeLayout
+                    android:id="@+id/videoLayout"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="@{model.messageState == MessageState.VIDEO?View.VISIBLE:View.GONE}"
+                    tools:visibility="gone">
+
+                    <com.github.siyamed.shapeimageview.RoundedImageView
+                        android:id="@+id/videoThumbnailImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:load_image="@{model.thumbnailUrl}"
+                        android:onClick="@{(v)->vm.onVideoClickedListener(v,model)}"
+                        android:scaleType="centerCrop"
+                        app:siRadius="20dp"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/avatar" />
+
+                    <ImageView
+                        android:id="@+id/playVideoButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/play_video"
+                        android:src="@drawable/ic_play" />
+
+                </RelativeLayout>
+
+                <!--       Audio -->
+                <LinearLayout
+                    android:id="@+id/audioLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bubble_sent_background"
+                    android:gravity="center"
+                    android:maxWidth="200dp"
+                    android:orientation="horizontal"
+
+                    android:padding="4dp"
+                    android:visibility="@{model.messageState == MessageState.AUDIO?View.VISIBLE:View.GONE}"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/btn_action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.onBtnAudioClickedListener(i,model)}"
+                        android:src="@{vm.play &amp;&amp; vm.playCurrentPosition == i ? @drawable/ic__pause:@drawable/ic_play_voice}"
+                        tools:src="@drawable/ic_play"
+                        tools:visibility="visible" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="@{vm.playCurrentPosition == i ? vm.progressState : 0}"
+                        android:progressTint="@color/white"
+                        android:thumbTint="@color/white" />
+
+                </LinearLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="top"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/avatar" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textColor="@color/text_color_black"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/bodyLayout"
+                app:layout_constraintRight_toLeftOf="@+id/bodyLayout"
+                tools:text="11:40"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

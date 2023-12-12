@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.aelzohry.topsaleqatar.ui.home.HomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_home" />
+
+
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.aelzohry.topsaleqatar.ui.categories.CategoriesFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_categories" />
+
+
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.aelzohry.topsaleqatar.ui.messages.MessagesFragment"
+        android:label="@string/messages"
+        tools:layout="@layout/fragment_messages" />
+
+    <fragment
+        android:id="@+id/myAdsFragment"
+        android:name="com.aelzohry.topsaleqatar.ui.more.my_ads.MyAdsFragment"
+        android:label="@string/my_ads"
+        tools:layout="@layout/fragment_my_ads" />
+
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.aelzohry.topsaleqatar.ui.more.MoreFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_more" />
+
+</navigation>

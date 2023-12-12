@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.aelzohry.topsaleqatar.model.Category" />
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.categories.CategoriesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/bg_item"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:onClick="@{(v)->vm.onItemCatSelectedListener(v,model)}"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="2dp"
+            android:load_image="@{model.imageUrl}">
+
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/ad_photo_desc"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/loading"
+                style="@style/AVLoadingIndicatorView.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:indicatorName="@string/IndicatorName"
+                app:indicatorColor="@color/mainColor" />
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{model.title.localized}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_color_black"
+            android:textSize="12sp"
+            tools:text="TextView" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/hint_1" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_keyboard_arrow_right_white_24dp"
+            app:tint="@color/hint_1" />
+
+    </LinearLayout>
+</layout>

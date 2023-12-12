@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.aelzohry.topsaleqatar.model.Ad" />
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.more.my_ads.MyAdsViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->vm.onAdClickedListener(v,model)}"
+        android:orientation="vertical"
+        android:padding="@dimen/default_half_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:load_image_new="@{model}">
+
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/ad_photo_desc"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/loading"
+                    style="@style/AVLoadingIndicatorView.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:indicatorColor="@color/mainColor"
+                    app:indicatorName="@string/IndicatorName" />
+
+                <ImageView
+                    android:id="@+id/fixedImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_margin="8dp"
+                    android:is_visible="@{model.fixed}"
+                    android:src="@drawable/ic_star_yellow_24dp" />
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{model.title}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="14sp"
+                    tools:text="Title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{model.details}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="14sp"
+                    tools:text="Details" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:set_double="@{model.price}"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="14sp"
+                        tools:text="999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/currency"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ad_status="@{model}"
+                    android:maxLines="2"
+                    android:text="@string/pending_approval"
+                    android:textColor="@color/statusActive"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="2dp"
+                    android:ad_rejected_status="@{model}"
+                    android:background="@drawable/reject_reason_bg"
+                    android:gravity="start"
+                    android:padding="4dp"
+                    android:textColor="@color/statusNonActive"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="Rejection Reason"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btn_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smallMargin"
+                android:layout_marginEnd="@dimen/smallMargin"
+                android:layout_weight="1"
+                android:background="@drawable/custom_border_btn"
+                android:gravity="center">
+
+
+                <TextView
+                    style="@style/NormalTextViewStyle"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="@string/edit"
+                    android:textColor="@color/colorAccent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btn_options"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smallMargin"
+                android:layout_marginEnd="@dimen/smallMargin"
+                android:layout_weight="1"
+                android:background="@drawable/custom_border_btn"
+                android:gravity="center">
+
+
+                <TextView
+                    style="@style/NormalTextViewStyle"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="@string/options"
+                    android:textColor="@color/colorAccent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_share"
+                android:layout_width="0dp"
+                android:onClick="@{(v)->vm.onShareAdClick(v,model)}"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smallMargin"
+                android:layout_marginEnd="@dimen/smallMargin"
+                android:layout_weight="1"
+                android:background="@drawable/custom_border_btn"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_share_user" />
+
+                <TextView
+                    style="@style/NormalTextViewStyle"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="@string/share"
+                    android:textColor="@color/colorAccent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

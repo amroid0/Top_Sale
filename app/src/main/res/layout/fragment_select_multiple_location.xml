@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.autoCompleteSearchLocation.view.SelectMultipleLocationFragment">
+
+    <data>
+
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@drawable/border_rect_top_gray">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/ib_close"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentStart="true"
+                    android:background="@null"
+                    android:src="@drawable/ic_close_black_24dp" />
+
+                <TextView
+                    style="@style/TitleTextViewStyle"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="@string/location" />
+
+
+                <TextView
+                    android:id="@+id/tv_done"
+                    android:paddingStart="@dimen/extraMargin"
+                    android:paddingEnd="@dimen/extraMargin"
+                    style="@style/TitleTextViewStyle"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="@string/done" />
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginStart="@dimen/extraMargin"
+                    android:layout_weight="1"
+                    android:id="@+id/rv_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/search_bg"
+                    app:cardCornerRadius="@dimen/normalMargin"
+                    app:cardElevation="0dp">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/normalMargin"
+                            android:src="@drawable/ic_search_pin" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/ed_search"
+                            style="@style/CustomEditTextStyle"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="@string/type_your_address" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ib_view"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@null"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_map_view" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/extraMargin"
+                android:paddingEnd="@dimen/extraMargin">
+
+
+
+
+                <org.apmem.tools.layouts.FlowLayout
+                    android:id="@+id/flow_locations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smallMargin"
+                    android:layout_marginEnd="-8dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:visibility="gone"
+                    tools:ignore="RtlHardcoded"
+                    tools:visibility="visible">
+
+                    <include layout="@layout/item_location" />
+
+                    <include layout="@layout/item_location" />
+
+                    <include layout="@layout/item_location" />
+
+                    <include layout="@layout/item_location" />
+
+                    <include layout="@layout/item_location" />
+
+                    <include layout="@layout/item_location" />
+
+                </org.apmem.tools.layouts.FlowLayout>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    tools:itemCount="3"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_location_result" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normalMargin"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/extraMargin"
+                android:layout_marginBottom="@dimen/extraMargin"
+                android:layout_marginEnd="@dimen/extraMargin"
+                android:layout_marginTop="@dimen/halfMargin"
+                android:text="@string/ok"
+                android:textAllCaps="false"
+                android:textColor="@color/btn_txt_color"
+                android:textStyle="bold"
+                app:backgroundTint="@color/btn_main_bg"
+                app:cornerRadius="8dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading"
+            style="@style/MainCircularProgressIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</layout>

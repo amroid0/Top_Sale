@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.aelzohry.topsaleqatar.model.Comment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:layout_marginBottom="4dp"
+            android:load_image="@{model.user.avatarUrl}"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="@dimen/default_half_margin" />
+
+        <View
+            android:id="@+id/separatorView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:background="@color/details_separator_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/commentTextView" />
+
+        <ImageButton
+            android:id="@+id/actionsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:layout_marginEnd="@dimen/default_half_margin"
+
+            android:background="@null"
+            android:contentDescription="@string/comment_actions_button"
+            android:minWidth="40dp"
+            android:minHeight="30dp"
+            android:src="@drawable/ic_more_white_24dp"
+            android:tint="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/topContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_half_margin"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:layout_marginEnd="@dimen/default_half_margin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/commentTextView"
+            app:layout_constraintEnd_toStartOf="@id/actionsButton"
+            app:layout_constraintStart_toEndOf="@id/avatarImageView"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:textSize="12sp"
+                android:textColor="@color/text_color_black"
+                tools:text="User Name" />
+
+            <TextView
+                android:id="@+id/mobileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.user.mobile}"
+                android:textAlignment="viewStart"
+                android:textSize="12sp"
+                android:textColor="@color/text_color_black"
+                tools:text="User Mobile" />
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:textSize="12sp"
+                android:textColor="@color/text_color_black"
+                tools:text="Date" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/commentTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:textAlignment="viewStart"
+            android:textSize="12sp"
+            android:text="@{model.text}"
+            android:textColor="@color/hint_1"
+            app:layout_constraintBottom_toTopOf="@id/separatorView"
+            app:layout_constraintEnd_toEndOf="@id/actionsButton"
+            app:layout_constraintStart_toStartOf="@id/topContent"
+            app:layout_constraintTop_toBottomOf="@id/topContent"
+            tools:text="Comment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

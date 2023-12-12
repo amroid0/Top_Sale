@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+
+    <item
+        android:id="@+id/categoriesFragment"
+        android:icon="@drawable/ic_categories"
+        android:title="@string/categories" />
+
+
+    <item
+        android:id="@+id/chatFragment"
+        android:icon="@drawable/ic_messages"
+        android:title="@string/messages" />
+
+<!--    <item-->
+<!--        android:id="@+id/addAdFragment"-->
+<!--        android:icon="@drawable/ef_ic_camera_white"-->
+<!--        android:title="@string/add_ad" />-->
+
+    <item
+        android:id="@+id/myAdsFragment"
+        android:icon="@drawable/ic_my_ads"
+        android:title="@string/my_ads" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_person_white_24dp"
+        android:title="@string/profile" />
+
+</menu>

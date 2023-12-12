@@ -1,0 +1,187 @@
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+apply plugin: 'com.android.application'
+
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.firebase.crashlytics'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-parcelize'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 34
+    defaultConfig {
+        applicationId "qa.topsale"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 30
+        versionName "4.4.5"
+
+        archivesBaseName = "TopSale_" + versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            ext.enableCrashlytics = false
+//            versionNameSuffix '_DEBUG'
+        }
+    }
+//    androidExtensions {
+//        experimental = true
+//    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+//    viewBinding {
+//        enabled = true
+//    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.0"
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.github.armcha:SpaceNavigationView:1.6.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.0'
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.12.12'
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3'
+    implementation 'com.github.dhaval2404:imagepicker-support:1.5'
+    implementation 'com.github.florent37:inline-activity-result-kotlin:1.0.1'
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.6.Final'
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+    implementation 'info.hoang8f:android-segmented:1.0.6'
+    implementation 'com.github.nkzawa:socket.io-client:0.6.0'
+    implementation 'com.github.stfalcon:stfalcon-imageviewer:1.0.10'
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.3.1'
+
+    implementation 'com.github.JagarYousef:ChatVoicePlayer:1.0.7'
+
+    implementation 'com.karumi:dexter:6.2.1'
+    implementation 'com.devlomi.record-view:record-view:2.0.1'
+    implementation 'com.4ert:audioview:1.4.12'
+
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-analytics:21.2.2'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.7'
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+    //loading
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+
+    //AvLoadingIndicatorView
+    implementation "com.wang.avi:library:2.1.3"
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //handel rv space
+    implementation 'io.cabriole:decorator:1.2.0'
+    implementation 'cc.cloudist.acplibrary:library:1.2.1'
+
+
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.libraries.places:places:3.1.0'
+
+    implementation 'com.github.ParkSangGwon:TedImagePicker:1.1.10'
+
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    implementation('com.schibstedspain.android:leku:8.0.0') {
+        exclude group: 'com.google.android.gms'
+        exclude group: 'androidx.appcompat'
+    }
+
+//    implementation 'com.sangcomz:FishBun:0.11.4'
+    implementation project(':fishbun')
+//    implementation 'com.github.nguyenhoanglam:ImagePicker:1.5.1'
+
+
+    // ios dialog
+    implementation 'com.itlgl:iosdialog:1.0.1'
+
+    implementation 'vn.nms.dseekbar:DMSeekBar:1.0.0'
+
+
+    // branch io deep link
+    // required for all Android apps
+    implementation 'io.branch.sdk.android:library:5.+'
+    // required if your app is in the Google Play Store (tip: avoid using bundled play services libs)
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+    // optional
+    // Chrome Tab matching (enables 100% guaranteed matching based on cookies)
+    implementation 'androidx.browser:browser:1.5.0'
+
+    // tag layouts
+    implementation 'org.apmem.tools:layouts:1.10@aar'
+
+
+    implementation 'com.google.maps.android:android-maps-utils:2.3.0'
+    implementation 'com.gongwen:swipeback:1.0.2'
+    implementation 'com.github.jemshit:DiscreteScrollView:1.5.2'
+
+//    implementation 'com.faltenreich:skeletonlayout:5.0.0'
+
+
+}
+
+repositories {
+    mavenCentral()
+    google()
+}

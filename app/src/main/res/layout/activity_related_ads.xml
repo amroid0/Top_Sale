@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.ad_details.relatedAds.RelatedAdsViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".ui.ad_details.relatedAds.RelatedAdsActivity">
+
+        <include layout="@layout/toolbar" />
+
+        <com.aelzohry.topsaleqatar.utils.CustomFrame
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:frame_layout="@{@id/rv}"
+            android:frame_state="@{vm.frameState}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+                tools:listitem="@layout/view_holder_ad" />
+        </com.aelzohry.topsaleqatar.utils.CustomFrame>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

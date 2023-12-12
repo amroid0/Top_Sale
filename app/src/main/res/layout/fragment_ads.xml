@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.ads.AdsViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ads.AdsFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:background="@color/header_bg">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:elevation="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/btn_back"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_back_night"
+                        app:tint="@color/text_color_black" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/et_search_bg"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="@{(v)->vm.onSearchClickedListener(v)}"
+                            android:padding="8dp"
+                            android:src="@drawable/search"
+                            app:tint="@color/mainColor" />
+
+                        <EditText
+                            android:id="@+id/et_search"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="@string/search"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:paddingStart="8dp"
+
+                            android:paddingEnd="8dp"
+                            android:text="@={vm.etSearch}"
+                            android:textColor="@color/mainColor"
+                            android:textColorHint="@color/search_hint_color"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/img_cat"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="15dp"
+                        android:src="@drawable/ic_categories"
+                        app:tint="@color/mainColor" />
+
+
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/halfMargin">
+
+
+                        <Button
+                            android:id="@+id/btn_location"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:text="@string/location"
+                            android:textAllCaps="false"
+                            android:textColor="@color/mainColor"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:cornerRadius="4dp"
+                            app:icon="@drawable/ic_location_marker"
+                            app:iconTint="@color/mainColor"
+                            app:strokeColor="@color/mainColor"
+                            app:strokeWidth="1sp" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/btn_filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/custom_border_btn"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/normalMargin"
+                            android:paddingEnd="@dimen/normalMargin">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/normalMargin"
+                                android:layout_height="@dimen/normalMargin"
+                                android:src="@drawable/filter" />
+
+                            <View
+                                android:layout_width="@dimen/smallMargin"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                style="@style/NormalTextViewStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/btn_h_small"
+                                android:gravity="center"
+                                android:padding="0dp"
+                                android:text="@string/filter"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_color" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <TextView
+                            android:id="@+id/tv_for_rent"
+                            style="@style/NormalTextViewStyle"
+                            android:layout_height="@dimen/btn_h_small"
+                            android:layout_marginStart="@dimen/smallMargin"
+                            android:background="@drawable/custom_border_btn"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:paddingStart="@dimen/extraMargin"
+                            android:paddingEnd="@dimen/extraMargin"
+                            android:text="@string/for_rent"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color" />
+
+                        <TextView
+                            android:id="@+id/tv_for_sale"
+                            style="@style/NormalTextViewStyle"
+                            android:layout_height="@dimen/btn_h_small"
+                            android:layout_marginStart="@dimen/smallMargin"
+                            android:background="@drawable/custom_border_btn"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:paddingStart="@dimen/extraMargin"
+                            android:paddingEnd="@dimen/extraMargin"
+                            android:text="@string/for_sale"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color" />
+
+
+                        <TextView
+                            android:id="@+id/ll_aqar_type"
+                            style="@style/NormalTextViewStyle"
+                            android:is_visible="@{vm.aqarCategoryState}"
+                            android:layout_height="@dimen/btn_h_small"
+                            android:layout_marginStart="@dimen/smallMargin"
+                            android:background="@drawable/custom_border_btn"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:paddingStart="@dimen/extraMargin"
+                            android:paddingEnd="@dimen/extraMargin"
+                            android:text="@string/aqar_type"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color" />
+
+
+                        <TextView
+                            android:id="@+id/tv_make"
+                            style="@style/NormalTextViewStyle"
+                            android:layout_height="@dimen/btn_h_small"
+                            android:layout_marginStart="@dimen/smallMargin"
+                            android:is_visible="@{vm.carCategoryState}"
+
+                            android:background="@drawable/custom_border_btn"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:paddingStart="@dimen/extraMargin"
+                            android:paddingEnd="@dimen/extraMargin"
+                            android:text="@string/car_make_1"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color" />
+
+                        <TextView
+                            android:id="@+id/tv_model"
+                            android:is_visible="@{vm.selectedCarMakeItem!=null}"
+                            style="@style/NormalTextViewStyle"
+                            android:layout_height="@dimen/btn_h_small"
+                            android:layout_marginStart="@dimen/smallMargin"
+                            android:background="@drawable/custom_border_btn"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:paddingStart="@dimen/extraMargin"
+                            android:paddingEnd="@dimen/extraMargin"
+                            android:text="@string/car_model"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color" />
+
+                        <TextView
+                            android:is_visible="@{vm.selectedModelItem!=null}"
+                            android:id="@+id/tv_car_sub_model"
+                            style="@style/NormalTextViewStyle"
+                            android:layout_height="@dimen/btn_h_small"
+                            android:layout_marginStart="@dimen/smallMargin"
+                            android:background="@drawable/custom_border_btn"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:paddingStart="@dimen/extraMargin"
+                            android:paddingEnd="@dimen/extraMargin"
+                            android:text="@string/car_sub_model"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color" />
+
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+            </LinearLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:onRefreshListener="@{()->vm.onFilterCallBack()}"
+            app:refreshing="@{vm.swipeRefresh}">
+
+            <com.aelzohry.topsaleqatar.utils.CustomFrame
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:frame_layout="@{@id/recyclerView}"
+                android:frame_state="@{vm.frameState}">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    tools:listitem="@layout/view_holder_ad" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_margin="@dimen/extraMargin"
+                    android:gravity="center"
+                    android:weightSum="5">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/custom_bg_edit_text"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/btn_toggle_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:padding="8dp"
+                                android:src="@{vm.isAdViewGrid() ? @drawable/ic_list : @drawable/ic_grid}"
+                                tools:src="@drawable/ic_list" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/line_color" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/btn_sort"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/NormalTextViewStyle"
+                                android:layout_marginEnd="@dimen/halfMargin"
+                                android:padding="0dp"
+                                android:text="@string/sort"
+                                android:textColor="@color/black" />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:src="@drawable/ic_arrow_up"
+                                    android:tint="@color/black" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_marginTop="-5dp"
+                                    android:rotation="180"
+                                    android:src="@drawable/ic_arrow_up"
+                                    android:tint="@color/black" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.aelzohry.topsaleqatar.utils.CustomFrame>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/latest"
+            android:title="@string/latest"
+            android:orderInCategory="0"
+            android:checked="true"/>
+        <item
+            android:id="@+id/closest"
+            android:orderInCategory="1"
+            android:title="@string/closest" />
+        <item
+            android:id="@+id/lowest_price"
+            android:orderInCategory="2"
+            android:title="@string/lowest_price" />
+        <item
+            android:id="@+id/higher_price"
+            android:orderInCategory="3"
+            android:title="@string/higher_price" />
+        <item
+            android:id="@+id/model_newest"
+            android:orderInCategory="4"
+            android:title="@string/model_newest" />
+        <item
+            android:id="@+id/minimum_mileage"
+            android:orderInCategory="5"
+            android:title="@string/minimum_mileage" />
+    </group>
+</menu>

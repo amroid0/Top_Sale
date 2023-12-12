@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_label"
+            style="@style/NormalTextViewStyle"
+            android:padding="0dp"
+            android:visibility="gone"
+            android:text="@string/mobile" />
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_edit_text_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:background="@drawable/custom_bg_edit_text"
+                android:descendantFocusability="afterDescendants"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/paddingEditText"
+                android:paddingEnd="@dimen/paddingEditText">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginBtnView"
+                    android:src="@drawable/ic_show_password" />
+
+                <TextView
+                    android:id="@+id/tv_country_code"
+                    style="@style/NormalTextViewStyle"
+                    android:text="@string/country_code"
+                    android:textDirection="ltr"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:hintEnabled="false"
+                        app:passwordToggleDrawable="@drawable/show_password_selector"
+                        app:passwordToggleEnabled="false">
+
+                        <EditText
+                            android:id="@+id/et_text"
+                            style="@style/CustomEditTextStyle"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:textAlignment="gravity"
+                            tools:hint="Hint" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        style="@style/CustomEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:paddingStart="0dp"
+                        android:textAlignment="gravity"
+                        tools:text="Password" />
+                </FrameLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </FrameLayout>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            tools:visibility="invisible">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_red_circle" />
+
+
+            <TextView
+                android:id="@+id/tv_error"
+                style="@style/SmallTextViewStyle"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:padding="0dp"
+                android:textColor="@color/ios_red"
+                tools:text="This field is required" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

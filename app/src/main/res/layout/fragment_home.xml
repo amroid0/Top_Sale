@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.home.HomeViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:toolbarId="@+id/toolbar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:collapsedTitleTextColor="@color/white"
+                app:contentScrim="@color/white"
+                app:expandedTitleTextColor="@color/white"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:elevation="0dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="@{(v)->vm.onCatsButtonsClickedListener(v)}"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_categories"
+                            app:tint="@color/mainColor" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/et_search_bg"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:onClick="@{(v)->vm.onSearchClickedListener(v)}"
+                                android:padding="8dp"
+                                android:src="@drawable/search"
+                                app:tint="@color/mainColor" />
+
+                            <EditText
+                                android:id="@+id/et_search"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="@string/search_home"
+                                android:imeOptions="actionSearch"
+                                android:inputType="text"
+                                android:lines="1"
+                                android:paddingStart="@dimen/halfMargin"
+                                android:paddingEnd="@dimen/halfMargin"
+                                android:text="@={vm.etSearch}"
+                                android:textColor="@color/mainColor"
+                                android:textColorHint="@color/search_hint_color"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageButton
+                                android:id="@+id/ib_notification"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_vertical"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_notification" />
+
+
+                            <TextView
+                                android:id="@+id/tv_notification_badge"
+                                style="@style/NormalTextViewStyle"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:background="@drawable/red_circle"
+                                android:gravity="center"
+                                android:textAlignment="gravity"
+                                android:padding="0dp"
+                                android:text="1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/textSizeSmall_dp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                />
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/bannersRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            tools:listitem="@layout/view_holder_home_banner" />
+
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_margin="@dimen/normalMargin"
+                            app:cardCornerRadius="@dimen/normalMargin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <com.yarolegovich.discretescrollview.DiscreteScrollView
+                                android:id="@+id/slider"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/slider_h"
+                                android:background="@color/white"
+                                tools:listitem="@tools:sample/avatars" />
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="@dimen/normalMargin"
+                            android:layout_marginEnd="@dimen/normalMargin"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/ll_add_ad"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/home_buttons"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_marginStart="@dimen/halfMargin"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_baseline_photo_camera_24"
+                                    app:tint="@color/btn_main_icon_color" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/marginBtnView"
+                                    android:text="@string/add_ad"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/btn_txt_color"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="2dp"
+                                    android:visibility="gone"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="@android:color/white" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginEnd="2dp"
+                                    android:src="@drawable/ic_keyboard_arrow_right_white_24dp"
+                                    app:tint="@color/btn_main_icon_color" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/halfMargin"
+                                android:layout_height="0dp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/home_buttons"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:onClick="@{(v)->vm.onCatsButtonsClickedListener(v)}"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="2dp"
+                                    android:src="@drawable/ic_categories"
+                                    app:tint="@color/btn_main_icon_color" />
+
+                                <TextView
+                                    android:layout_marginStart="@dimen/marginBtnView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/categories"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/btn_txt_color"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:visibility="gone"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="2dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="@android:color/white" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginEnd="2dp"
+                                    android:src="@drawable/ic_keyboard_arrow_right_white_24dp"
+                                    app:tint="@color/btn_main_icon_color" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normalMargin"
+                android:layout_marginEnd="@dimen/normalMargin"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/addedTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@string/added_recently_ads"
+                    android:textColor="@color/text_color_black" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/btn_toggle_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="8dp"
+                        android:src="@{vm.isAdViewGrid() ? @drawable/ic_list : @drawable/ic_grid}"
+                        tools:src="@drawable/ic_list" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{()->vm.onRefreshListener()}"
+            app:refreshing="@{vm.swipeRefresh}"
+            tools:context=".ui.home.HomeFragment">
+
+            <com.aelzohry.topsaleqatar.utils.CustomFrame
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:frame_layout="@{@id/contentView}"
+                android:frame_state="@{vm.frameState}">
+
+<!--                <androidx.core.widget.NestedScrollView-->
+<!--                    android:id="@+id/layout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:clipToPadding="false"-->
+<!--                    android:fillViewport="true">-->
+
+                    <LinearLayout
+                        android:id="@+id/contentView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/adsRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/normalMargin"
+                            android:layout_marginEnd="@dimen/halfMargin"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:spanCount="2"
+                            tools:listitem="@layout/view_holder_ad" />
+
+                    </LinearLayout>
+
+<!--                </androidx.core.widget.NestedScrollView>-->
+
+            </com.aelzohry.topsaleqatar.utils.CustomFrame>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

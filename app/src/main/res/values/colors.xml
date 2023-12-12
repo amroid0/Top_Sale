@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000</color>
+    <color name="colorPrimaryDark">#fff</color>
+    <color name="colorAccent">#870D4F</color>
+    <color name="colorAccent_90">#E6870D4F</color>
+    <color name="colorAccent_transparent">#26870D4F</color>
+    <color name="mainColor">@color/colorAccent</color>
+    <color name="color_verification">#FF0BA651</color>
+    <color name="color_tab_background">@color/colorPrimary</color>
+    <color name="color_tab_selected_background">@color/colorAccent</color>
+    <color name="separator_color">#ff000000</color>
+    <color name="details_separator_color">#ffffffff</color>
+    <color name="container_background">#40ffffff</color>
+    <color name="not_background">#40ffffff</color>
+    <color name="not_unseen_background">#ffffffff</color>
+    <color name="statusColor">#CFCDD4</color>
+    <color name="hint">#80DDDDDD</color>
+    <color name="hint_1">#92000000</color>
+    <color name="hint_2">#80DDDDDD</color>
+    <color name="statusActive">#4CAF50</color>
+    <color name="statusNonActive">#FF0000</color>
+    <color name="black">#000</color>
+    <color name="hint_color">#92555555</color>
+    <color name="line_color">#CFCFCF</color>
+    <color name="black_transparent">#4D000000</color>
+
+
+
+    <color name="hint_new_ad">#80DDDDDD</color>
+    <color name="new_ad_bg">@color/white</color>
+    <color name="message_tab_selected_bg">@color/white</color>
+    <color name="item_border">@color/hint</color>
+    <color name="item_bg">@color/white</color>
+    <color name="search_hint_color">#7C7C7C</color>
+    <color name="search_bg">#80ECECEC</color>
+    <color name="text_color_black">#000</color>
+    <color name="text_color_white">#ffffffff</color>
+    <color name="header_bg">@color/white</color>
+    <color name="bg">#fff</color>
+    <!--    <color name="bg">#f8f8ff</color>-->
+    <color name="btn_bg">#B2AFBB</color>
+    <color name="icon_terms_tint">#654753</color>
+    <color name="btn_main_bg">@color/mainColor</color>
+    <color name="btn_main_icon_color">@color/white</color>
+    <color name="btn_second_bg">#EBEBEB</color>
+    <color name="btn_txt_color">@color/white</color>
+    <color name="btn_second_txt_color">#000</color>
+
+    <color name="bg_dialog">#fff</color>
+
+    <color name="background_color">#40ffffff</color>
+    <color name="text_color">@color/mainColor</color>
+
+    <color name="gray">#707070</color>
+    <color name="gray_1">#B5B5B5</color>
+
+    <color name="white_transparent">#9A8F8F8F</color>
+
+    <color name="grayBorderColor">#DEDEDE</color>
+    <color name="circle_color">#4BD6D6FA</color>
+    <color name="border_circle_color">#3A2CA5</color>
+
+
+    <color name="bg_color_ads_details">#F0F0F0</color>
+    <color name="bg_color_ads_details_1">#FBFBFB</color>
+
+
+    <color name="ed_text_color_un_selected">#E7ECF2</color>
+
+</resources>

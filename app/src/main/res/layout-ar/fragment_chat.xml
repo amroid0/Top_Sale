@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.messages.vm.ChatViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:textDirection="rtl"
+        android:layoutDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/header_bg"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/header_bg"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:titleTextColor="@color/text_color_black">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/toolbar_title"
+                        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/normalMargin"
+                        android:layout_marginEnd="@dimen/normalMargin"
+                        android:maxLines="1"
+                        android:layout_toEndOf="@id/ib_back"
+                        android:layout_toStartOf="@id/callButton"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/tajawal_regular"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="16sp"
+                        tools:text="العنوان" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/callButton"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_alignParentEnd="true"
+                        android:background="@null"
+                        android:src="@drawable/ic_call" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/ib_back"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_alignParentStart="true"
+                        android:background="@null"
+                        android:src="@drawable/ic_back" />
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".ui.messages.ChatFragment">
+
+            <LinearLayout
+                android:id="@+id/adLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:elevation="5dp"
+                android:padding="@dimen/default_half_margin">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/avatarImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="@dimen/default_half_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/avatar" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/default_half_margin"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/adTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color_black"
+                        android:textSize="@dimen/ad_input_text_size"
+                        tools:text="Jesus" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/default_half_margin"
+                            android:text="@string/price"
+                            android:visibility="gone"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/ad_input_text_size" />
+
+                        <TextView
+                            android:id="@+id/priceTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray"
+                            android:visibility="gone"
+                            android:textSize="@dimen/ad_input_text_size"
+                            tools:text="2222 QAR" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/adImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    tools:visibility="visible"
+                    android:visibility="gone"
+                    android:layout_marginEnd="@dimen/default_half_margin"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/logo"
+                    app:riv_border_color="@color/gray"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="8dp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@color/hint" />
+
+            <FrameLayout
+                android:layoutDirection="rtl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_message_sent" />
+
+
+            </FrameLayout>
+
+
+            <!-- A horizontal line between the chatbox and RecyclerView -->
+            <View
+                android:id="@+id/inputSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="0dp"
+                android:background="@color/hint" />
+
+            <LinearLayout
+                android:id="@+id/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:minHeight="48dp"
+                android:orientation="horizontal"
+                android:textDirection="ltr">
+
+
+                <ImageButton
+                    android:id="@+id/attachmentButton"
+                    android:layout_width="30dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/halfMargin"
+                    android:background="@null"
+                    android:contentDescription="@string/add_attachment"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+
+                    android:src="@drawable/ic_attachement" />
+
+                <com.devlomi.record_view.RecordButton
+                    android:id="@+id/recordButton"
+                    android:layout_width="30dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:scaleType="centerInside"
+                    app:mic_icon="@drawable/ic_record" />
+
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textDirection="rtl"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1">
+
+                    <com.devlomi.record_view.RecordView
+                        android:id="@+id/recordView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:visibility="gone"
+                        app:counter_time_color="#ff0000"
+                        app:slide_to_cancel_arrow="@drawable/recv_ic_arrow"
+                        app:slide_to_cancel_arrow_color="#000000"
+                        app:slide_to_cancel_bounds="8dp"
+                        app:slide_to_cancel_margin_right="10dp"
+                        app:slide_to_cancel_text="@string/slide_to_cancel" />
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="start"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/enter_message"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLines="6"
+                        android:padding="@dimen/smallMargin"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray" />
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:src="@drawable/ic_send_msg" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

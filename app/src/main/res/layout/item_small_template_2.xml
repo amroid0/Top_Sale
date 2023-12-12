@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.aelzohry.topsaleqatar.utils.RoundedView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:bottomLeftCornerRadius="10dp"
+            app:bottomRightCornerRadius="10dp"
+            app:topLeftCornerRadius="10dp"
+            app:topRightCornerRadius="10dp">
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_template_2" />
+
+            <ImageView
+                android:id="@+id/img_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/custom_selected_photo"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:maxLength="70"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="This is dummy Text For testing not real data, only to test if it inside width" />
+
+
+        </com.aelzohry.topsaleqatar.utils.RoundedView>
+    </FrameLayout>
+
+
+</layout>

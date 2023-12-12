@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.search.SearchViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".ui.search.SearchFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:background="@color/header_bg">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:elevation="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/btn_back"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_back"
+                        app:tint="@color/text_color_black" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/et_search_bg"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="@{(v)->vm.onSearchClickedListener(v)}"
+                            android:padding="8dp"
+                            android:src="@drawable/search"
+                            app:tint="@color/mainColor" />
+
+                        <EditText
+                            android:id="@+id/et_search"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="@string/search"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="@={vm.etSearch}"
+                            android:textColor="@color/mainColor"
+                            android:textColorHint="@color/search_hint_color"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/home_buttons">
+
+                        <ImageView
+                            android:id="@+id/btn_toggle_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="8dp"
+                            android:src="@{vm.isAdViewGrid() ? @drawable/ic_list : @drawable/ic_grid}"
+                            app:tint="@color/white"
+                            tools:src="@drawable/ic_grid" />
+
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+
+                    <Button
+                        android:id="@+id/btn_sort"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:text="@string/sort"
+                        android:textAllCaps="false"
+                        android:textColor="@color/mainColor"
+                        android:textSize="16sp"
+                        app:cornerRadius="4dp"
+                        app:icon="@drawable/ic_sort"
+                        app:iconTint="@color/mainColor"
+                        app:strokeColor="@color/mainColor"
+                        app:strokeWidth="1sp" />
+
+                    <Button
+                        android:id="@+id/btn_filter"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/filter"
+                        android:textAllCaps="false"
+                        android:textColor="@color/mainColor"
+                        android:textSize="16sp"
+                        app:cornerRadius="4dp"
+                        app:iconSize="16sp"
+
+                        app:icon="@drawable/filter"
+                        app:iconTint="@color/mainColor"
+                        app:strokeColor="@color/mainColor"
+                        app:strokeWidth="1sp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.aelzohry.topsaleqatar.utils.CustomFrame
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:frame_layout="@{@id/rv}"
+            android:frame_state="@{vm.frameState}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/view_holder_ad" />
+        </com.aelzohry.topsaleqatar.utils.CustomFrame>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.ui.ads.filter.NewFilterViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_rect_top"
+        android:layoutDirection="ltr"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:textDirection="ltr">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="16dp"
+                android:src="@drawable/ic_close_black_24dp"
+                app:tint="@color/text_color_black" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_all"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                android:textColor="@color/mainColor"
+                android:textSize="16sp"
+                app:cornerRadius="4dp"
+                app:strokeColor="@color/mainColor"
+                app:strokeWidth="1sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/apply"
+                android:textAllCaps="false"
+                android:textColor="@color/btn_txt_color"
+                android:textSize="16sp"
+                app:backgroundTint="@color/btn_main_bg" />
+
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/normalMargin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_main_cat"
+                      android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/category"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_main_cat_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_sub_cat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.subCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/subcategory"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_sub_cat_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:orientation="vertical"
+                        tools:visibility="visible">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/TitleTextViewStyle"
+                                    android:paddingStart="0dp"
+                                    android:text="@string/location"
+                                    android:textStyle="bold" />
+
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/smallMargin"
+                                        android:src="@drawable/ic_search_pin" />
+
+                                    <TextView
+                                        android:id="@+id/tv_location"
+                                        style="@style/SmallTextViewStyle"
+                                        android:layout_weight="1"
+                                        android:hint="@string/choose_your_address"
+                                        android:padding="0dp"
+                                        android:text="@{vm.selectLocationText}" />
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:src="@drawable/ic_arrow_left" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <org.apmem.tools.layouts.FlowLayout
+                            android:id="@+id/flow_locations"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="-8dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:visibility="gone"
+                            tools:ignore="RtlHardcoded"
+                            tools:visibility="visible">
+
+                            <include layout="@layout/item_location" />
+
+                            <include layout="@layout/item_location" />
+
+                            <include layout="@layout/item_location" />
+
+                            <include layout="@layout/item_location" />
+
+                            <include layout="@layout/item_location" />
+
+                            <include layout="@layout/item_location" />
+
+                        </org.apmem.tools.layouts.FlowLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="@dimen/normalMargin"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/city"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_city_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.typeState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/type"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_type_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_region"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/region"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_region_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_make"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:is_visible="@{vm.carCatState}"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/car_make"
+                            android:textStyle="bold" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_make"
+                                style="@style/NormalTextViewStyle"
+                                android:layout_weight="1"
+                                android:hint="@string/car_make"
+                                android:paddingStart="0dp"
+                                android:text="@{vm.selectedCarMakeText}" />
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_left" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.selectedCarMakeItem!=null}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/car_model"
+                            android:textStyle="bold" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_model"
+                                style="@style/NormalTextViewStyle"
+                                android:layout_weight="1"
+                                android:hint="@string/car_model"
+                                android:paddingStart="0dp"
+                                android:text="@{vm.selectedModelText}" />
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_left" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_sub_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.selectedModelLocal!=null}"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/car_sub_model"
+                            android:textStyle="bold" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_sub_model"
+                                style="@style/NormalTextViewStyle"
+                                android:layout_weight="1"
+                                android:hint="@string/car_sub_model"
+                                android:paddingStart="0dp"
+                                android:text="@{vm.selectedSubModelText}" />
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_left" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_make_model_category_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/make_model_sub_model"
+                            android:textStyle="bold" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/NormalTextViewStyle"
+                                android:layout_weight="1"
+                                android:hint="@string/make_model_sub_model"
+                                android:paddingStart="0dp"
+                                android:text="@{vm.selectedMakeModelCategoryText}" />
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_left" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_car_show"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/car_show_list"
+                            android:textStyle="bold" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_car_show_list"
+                                style="@style/NormalTextViewStyle"
+                                android:layout_weight="1"
+                                android:hint="@string/car_show_list"
+                                android:paddingStart="0dp" />
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_left" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/car_year"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_year_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_gearbox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/motion_vector"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_gearbox_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_engine_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/engine_size"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_engine_size_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_km"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/km_hint"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_km_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_fuel_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/fuel_type"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_fuelt_type_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_engine_drive_system"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/engine_drive_system"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_engine_drive_system_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_car_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginBtnView"
+                        android:is_visible="@{vm.carCatState}"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TitleTextViewStyle"
+                            android:padding="0dp"
+                            android:text="@string/car_color"
+                            android:textStyle="bold" />
+
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginBtnView"
+                            android:layout_marginBottom="@dimen/marginBtnView"
+                            android:scrollbars="none">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/ll_color_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+
+                                <include layout="@layout/item_filter" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </HorizontalScrollView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_color" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_rooms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginBtnView"
+                    android:is_visible="@{vm.regionState}"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+
+                    <TextView
+                        style="@style/TitleTextViewStyle"
+                        android:padding="0dp"
+                        android:text="@string/rooms_numbers"
+                        android:textStyle="bold" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/smallMargin"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/filter_field_bg"
+                                android:gravity="center"
+                                android:hint="@string/from"
+                                android:inputType="number"
+                                android:lines="1"
+                                android:maxLength="8"
+                                android:paddingStart="4dp"
+                                android:paddingEnd="4dp"
+                                android:text="@={vm.etFromRooms}"
+                                android:textColor="@color/text_color_black"
+                                android:textColorHint="@color/hint_color"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/marginBtnView"
+                                android:layout_weight="1"
+                                android:background="@drawable/filter_field_bg"
+                                android:gravity="center"
+                                android:hint="@string/to"
+                                android:inputType="number"
+                                android:lines="1"
+                                android:maxLength="8"
+                                android:paddingStart="4dp"
+                                android:paddingEnd="4dp"
+                                android:text="@={vm.etToRooms}"
+                                android:textColor="@color/text_color_black"
+                                android:textColorHint="@color/hint_color"
+
+                                android:textSize="14sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_bath_room_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginBtnView"
+                    android:is_visible="@{vm.regionState}"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+
+                    <TextView
+                        style="@style/TitleTextViewStyle"
+                        android:padding="0dp"
+                        android:text="@string/bath_room_number"
+                        android:textStyle="bold" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/smallMargin"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/filter_field_bg"
+                                android:gravity="center"
+                                android:hint="@string/from"
+                                android:inputType="number"
+                                android:lines="1"
+                                android:maxLength="8"
+                                android:paddingStart="4dp"
+                                android:paddingEnd="4dp"
+                                android:text="@={vm.etFromBathRooms}"
+                                android:textColor="@color/text_color_black"
+                                android:textColorHint="@color/hint_color"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/marginBtnView"
+                                android:layout_weight="1"
+                                android:background="@drawable/filter_field_bg"
+                                android:gravity="center"
+                                android:hint="@string/to"
+                                android:inputType="number"
+                                android:lines="1"
+                                android:maxLength="8"
+                                android:paddingStart="4dp"
+                                android:paddingEnd="4dp"
+                                android:text="@={vm.etToBathRooms}"
+                                android:textColor="@color/text_color_black"
+                                android:textColorHint="@color/hint_color"
+
+                                android:textSize="14sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginBtnView"
+                    android:is_visible="@{vm.typeState}"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        style="@style/TitleTextViewStyle"
+                        android:padding="0dp"
+                        android:text="@string/price_range"
+                        android:textStyle="bold" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/smallMargin"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/filter_field_bg"
+                                android:gravity="center"
+                                android:hint="@string/from"
+                                android:inputType="number"
+                                android:lines="1"
+                                android:maxLength="8"
+                                android:paddingStart="4dp"
+                                android:paddingEnd="4dp"
+                                android:text="@={vm.etFromPrice}"
+                                android:textColor="@color/text_color_black"
+                                android:textColorHint="@color/hint_color"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/marginBtnView"
+                                android:layout_weight="1"
+                                android:background="@drawable/filter_field_bg"
+                                android:gravity="center"
+                                android:hint="@string/to"
+                                android:inputType="number"
+                                android:lines="1"
+                                android:maxLength="8"
+                                android:paddingStart="4dp"
+                                android:paddingEnd="4dp"
+                                android:text="@={vm.etToPrice}"
+                                android:textColor="@color/text_color_black"
+                                android:textColorHint="@color/hint_color"
+
+                                android:textSize="14sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>

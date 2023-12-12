@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:layout_marginEnd="@dimen/halfMargin"
+            app:cardCornerRadius="@dimen/normalMargin"
+            app:cardElevation="0dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/f_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/search_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/normalMargin"
+                android:paddingTop="@dimen/smallMargin"
+                android:paddingBottom="@dimen/smallMargin">
+
+                <TextView
+                    android:id="@+id/tv_text"
+                    style="@style/NormalTextViewStyle"
+                    android:padding="0dp"
+                    tools:text="قطر" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/halfMargin"
+                    android:paddingEnd="@dimen/normalMargin"
+                    android:src="@drawable/ic_remove_tag" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

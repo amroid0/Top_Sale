@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.aelzohry.topsaleqatar.utils.base.BaseViewModel" />
+
+        <variable
+            name="i"
+            type="Integer" />
+
+        <variable
+            name="model"
+            type="com.aelzohry.topsaleqatar.model.StanderModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{model._checked ? @color/mainColor : @color/bg}"
+        android:foreground="?android:selectableItemBackground"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:text="اسم المدينة"
+            android:text="@{model.title}"
+            android:textColor="@{model._checked ? @color/white : @color/text_color_black}"
+            android:textSize="14sp"
+             />
+
+    </FrameLayout>
+</layout>

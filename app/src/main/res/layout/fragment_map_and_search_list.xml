@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.mapAndSearchList.MapAndSearchListFragment">
+
+
+    <data>
+
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/border_rect_top"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/ib_close"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentStart="true"
+                    android:background="@null"
+                    android:src="@drawable/ic_close_black_24dp" />
+
+                <TextView
+                    style="@style/TitleTextViewStyle"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="@string/location" />
+
+
+
+                <TextView
+                    android:id="@+id/tv_done"
+                    android:visibility="gone"
+                    style="@style/TitleTextViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:paddingStart="@dimen/extraMargin"
+                    android:paddingEnd="@dimen/extraMargin"
+                    android:text="@string/done" />
+            </RelativeLayout>
+
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/container"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading"
+            style="@style/MainCircularProgressIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</layout>

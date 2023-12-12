@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.aelzohry.topsaleqatar.utils.RoundedView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:bottomLeftCornerRadius="@dimen/halfMargin"
+            app:bottomRightCornerRadius="@dimen/halfMargin"
+            app:topLeftCornerRadius="@dimen/halfMargin"
+            app:topRightCornerRadius="@dimen/halfMargin">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@color/colorAccent" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/custom_selected_photo" />
+
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is dummy Text For testing not real data, only to test if it inside width"/>
+
+    </com.aelzohry.topsaleqatar.utils.RoundedView>
+</FrameLayout>
+
+</layout>

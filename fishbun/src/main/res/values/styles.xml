@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="FishBunTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="DetailViewTheme" parent="FishBunTheme">
+        <item name="colorControlHighlight">@android:color/white</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+</resources>
