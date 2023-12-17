@@ -48,6 +48,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.ligl.android.widget.iosdialog.IOSSheetDialog
 import com.squareup.picasso.Picasso
+import gun0912.tedimagepicker.util.ToastUtil
 import java.util.*
 
 class AdDetailsActivity : BaseActivity<FragmentAdDetailsBinding, AdDetailsViewModel>() {
@@ -142,6 +143,12 @@ class AdDetailsActivity : BaseActivity<FragmentAdDetailsBinding, AdDetailsViewMo
 
         vm.adRes.observe(this) {
             setAdData(it)
+        }
+        vm.notFoundAds.observe(this){
+            if (it){
+              ToastUtil.showToast(getString(R.string.ad_not_found))
+                finish()
+            }
         }
 
         vm.userAdsRes.observe(this) {

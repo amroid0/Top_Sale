@@ -11,12 +11,14 @@ import androidx.navigation.Navigation
 import com.aelzohry.topsaleqatar.R
 import com.aelzohry.topsaleqatar.helper.Helper
 import com.aelzohry.topsaleqatar.model.Ad
+import com.aelzohry.topsaleqatar.model.AdStatus
 import com.aelzohry.topsaleqatar.model.Banner
 import com.aelzohry.topsaleqatar.repository.remote.RemoteRepository
 import com.aelzohry.topsaleqatar.ui.ad_details.AdDetailsActivity
 import com.aelzohry.topsaleqatar.ui.messages.ChatFragment
 import com.aelzohry.topsaleqatar.utils.CustomFrame
 import com.aelzohry.topsaleqatar.utils.SingleLiveEvent
+import gun0912.tedimagepicker.util.ToastUtil
 import io.branch.indexing.BranchUniversalObject
 import io.branch.referral.BranchError
 import io.branch.referral.util.ContentMetadata
@@ -52,7 +54,11 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     }
 
     fun onAdClickedListener(v: View, model: Ad) {
-        AdDetailsActivity.newInstance(v.context, model, isClear = false)
+        if (model.status == AdStatus.ACTIVE){
+            AdDetailsActivity.newInstance(v.context, model, isClear = false)
+        }else{
+            ToastUtil.showToast(v.context.getString(R.string.ad_not_found))
+        }
     }
 
     fun onWhatsappClick(v: View, ad: Ad) {

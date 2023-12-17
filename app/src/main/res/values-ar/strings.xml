@@ -331,5 +331,6 @@
     <string name="aqar_type">نوع العقار</string>
 
     <string name="car_show_list">قائمة المعارض</string>
+  <string name="ad_not_found">الاعلان غير متوفر</string>
 
 </resources>

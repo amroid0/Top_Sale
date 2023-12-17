@@ -37,6 +37,7 @@ import com.aelzohry.topsaleqatar.ui.ad_details.relatedAds.RelatedAdsActivity
 import com.aelzohry.topsaleqatar.ui.comments.CommentsFragment
 import com.aelzohry.topsaleqatar.ui.messages.ChatFragment
 import com.aelzohry.topsaleqatar.ui.user.UserFragment
+import com.aelzohry.topsaleqatar.utils.SingleLiveEvent
 import com.aelzohry.topsaleqatar.utils.base.BaseViewModel
 import com.aelzohry.topsaleqatar.utils.base.BetterActivityResult
 import io.branch.indexing.BranchUniversalObject
@@ -59,6 +60,7 @@ class AdDetailsViewModel(var ad: Ad?, val adId: String) : BaseViewModel() {
     var commentsRes = MutableLiveData<RecentComments>()
     var relatedAdsRes = MutableLiveData<ArrayList<Ad>>()
     var userAdsRes = MutableLiveData<ArrayList<Ad>>()
+    var notFoundAds = SingleLiveEvent<Boolean>()
 
     var viewCount = ObservableField(ad?.viewsCount)
     val favState = ObservableField(ad?.isFavourite)
@@ -83,10 +85,13 @@ class AdDetailsViewModel(var ad: Ad?, val adId: String) : BaseViewModel() {
     fun loadData() {
         isLoading.postValue(true)
         repository.getAd(adId) { ad ->
-            ad ?: return@getAd
-            adRes.postValue(ad)
             isLoading.postValue(false)
+            if (ad!=null){
+            adRes.postValue(ad)
             incrementViews()
+            }else{
+              notFoundAds.postValue(true)
+            }
         }
         loadComments()
         loadUserAds()
