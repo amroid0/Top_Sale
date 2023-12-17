@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.core.app.ActivityCompat
@@ -25,6 +26,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Circle
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.material.button.MaterialButton
 
 
 class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBinding, SelectLocationViewModel>(),
@@ -126,7 +128,13 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
     }
 
     override fun observerLiveData() {}
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val parentFragmentView = requireParentFragment().view
 
+        val parentButton = parentFragmentView?.findViewById<MaterialButton>(R.id.btn_apply)
+        parentButton?.visibility = View.GONE
+    }
     fun initMapListener() {
         if (activity == null) return
         if (ContextCompat.checkSelfPermission(

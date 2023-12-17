@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.mapAndSearchList.MapAndSearchListFragment">
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  tools:context=".ui.mapAndSearchList.MapAndSearchListFragment">
 
 
     <data>
@@ -32,24 +33,28 @@
                     android:src="@drawable/ic_close_black_24dp" />
 
                 <TextView
-                    style="@style/TitleTextViewStyle"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/tajawal_bold"
-                    android:text="@string/location" />
+                  style="@style/TitleTextViewStyle"
+                  android:layout_centerInParent="true"
+                  android:layout_gravity="center_horizontal"
+                  android:fontFamily="@font/tajawal_bold"
+                  android:text="@string/location" />
 
 
+                <com.google.android.material.button.MaterialButton
 
-                <TextView
-                    android:id="@+id/tv_done"
-                    android:visibility="gone"
-                    style="@style/TitleTextViewStyle"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:fontFamily="@font/tajawal_bold"
-                    android:paddingStart="@dimen/extraMargin"
-                    android:paddingEnd="@dimen/extraMargin"
-                    android:text="@string/done" />
+                  android:id="@+id/btn_apply"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="8dp"
+                  android:layout_marginEnd="8dp"
+                  android:text="@string/done"
+                  android:textAllCaps="false"
+                  android:textColor="@color/btn_txt_color"
+                  android:textSize="16sp"
+                  android:layout_alignParentEnd="true"
+                  android:layout_centerVertical="true"
+                  app:backgroundTint="@color/btn_main_bg" />
+
             </RelativeLayout>
 
 

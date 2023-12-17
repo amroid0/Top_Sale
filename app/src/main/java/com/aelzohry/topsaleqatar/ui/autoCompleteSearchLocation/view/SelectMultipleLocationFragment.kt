@@ -19,6 +19,7 @@ import com.aelzohry.topsaleqatar.ui.autoCompleteSearchLocation.viewModel.SelectM
 import com.aelzohry.topsaleqatar.utils.base.BaseAdapter
 import com.aelzohry.topsaleqatar.utils.base.BaseFragment
 import com.aelzohry.topsaleqatar.utils.extenions.setVisible
+import com.google.android.material.button.MaterialButton
 import org.apmem.tools.layouts.FlowLayout
 
 class SelectMultipleLocationFragment : BaseFragment<FragmentSelectMultipleLocationBinding, SelectMultipleLocationViewModel>() {
@@ -51,6 +52,14 @@ class SelectMultipleLocationFragment : BaseFragment<FragmentSelectMultipleLocati
         binding.edSearch.requestFocus()
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
         imm?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+        val parentFragmentView = requireParentFragment().view
+
+        val parentButton = parentFragmentView?.findViewById<MaterialButton>(R.id.btn_apply)
+        parentButton?.visibility =View.VISIBLE
+        parentButton?.setOnClickListener {
+            mListener.onItemSelected(getItems())
+        }
+
     }
 
     override fun onPause() {
@@ -81,13 +90,12 @@ class SelectMultipleLocationFragment : BaseFragment<FragmentSelectMultipleLocati
             mListener.onItemSelected(getItems())
         }
 
-        binding.btnOk.setOnClickListener {
-            mListener.onItemSelected(getItems())
-        }
+
 
         binding.ibView.setOnClickListener { mListener.onMapViewClick() }
 
     }
+
 
     override fun observerLiveData() {
         vm.autoCompleteResult.observe(this) { setupAdapter(it) }

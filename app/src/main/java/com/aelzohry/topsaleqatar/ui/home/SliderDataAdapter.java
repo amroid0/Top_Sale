@@ -88,7 +88,6 @@ public class SliderDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public void bind(int position) {
             TopBanner adsBean = adstList.get(position);
             setImage(mActivity, binding.imageView, adsBean.getPhotoUrl());
-            binding.tvName.setText(position+"");
         }
     }
 

@@ -167,21 +167,6 @@
                 android:layout_height="@dimen/normalMargin"/>
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_ok"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/extraMargin"
-                android:layout_marginBottom="@dimen/extraMargin"
-                android:layout_marginEnd="@dimen/extraMargin"
-                android:layout_marginTop="@dimen/halfMargin"
-                android:text="@string/ok"
-                android:textAllCaps="false"
-                android:textColor="@color/btn_txt_color"
-                android:textStyle="bold"
-                app:backgroundTint="@color/btn_main_bg"
-                app:cornerRadius="8dp" />
-
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 

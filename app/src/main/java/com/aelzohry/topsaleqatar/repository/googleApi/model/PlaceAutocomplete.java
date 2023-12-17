@@ -69,7 +69,7 @@ public class PlaceAutocomplete implements Serializable, Parcelable {
     }
 
     public String getPlaceId() {
-        return TextUtils.isEmpty(placeId)?placeId:"";
+        return placeId;
     }
 
     public void setPlaceId(String placeId) {

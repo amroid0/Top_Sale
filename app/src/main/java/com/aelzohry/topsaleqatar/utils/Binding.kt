@@ -27,9 +27,14 @@ import com.aelzohry.topsaleqatar.model.AdStatus
 import com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
 import com.aelzohry.topsaleqatar.utils.extenions.setVisible
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.textfield.TextInputLayout
 import com.squareup.picasso.Picasso
@@ -135,35 +140,35 @@ object Binding {
         loading.isVisible=true
         Glide.with(context)
             .load(path)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .placeholder(R.drawable.no_img_placeholder)
             .error(R.drawable.no_img_placeholder)
-            .into(object : CustomTarget<Drawable?>() {
+            .listener(object : RequestListener<Drawable?> {
+
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable?>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    loading.isVisible=false
+
+                    return false
+                }
 
                 override fun onResourceReady(
-                    resource: Drawable,
-                    transition: Transition<in Drawable?>?
-                ) {
-                    imageView.setImageDrawable(resource)
-//                    iv.setVisible(true)
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable?>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
                     loading.isVisible=false
-
-//                    lv.hide()
-//                    lv.setVisible(false)
-                }
-
-                override fun onLoadCleared(placeholder: Drawable?) {
-                    loading.isVisible=false
+                    return false
 
                 }
-
-                override fun onLoadFailed(errorDrawable: Drawable?) {
-                    super.onLoadFailed(errorDrawable)
-                    loading.isVisible=false
-
-                    imageView.setImageDrawable(errorDrawable)
-                }
-
             })
+            .into(imageView)
 
     }
 

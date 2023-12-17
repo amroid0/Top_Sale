@@ -4,12 +4,15 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import android.widget.PopupMenu
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.aelzohry.topsaleqatar.R
 import com.aelzohry.topsaleqatar.databinding.FragmentMyAdsBinding
 import com.aelzohry.topsaleqatar.databinding.ViewHolderMyAdBinding
@@ -92,6 +95,14 @@ class MyAdsFragment : BaseFragment<FragmentMyAdsBinding, MyAdsViewModel>() {
 //                }
             }
         }
+        binding.swipeRefreshLayout.setOnChildScrollUpCallback(object : SwipeRefreshLayout.OnChildScrollUpCallback {
+            override fun canChildScrollUp(parent: SwipeRefreshLayout, child: View?): Boolean {
+                if (binding.recyclerView != null) {
+                    return binding.recyclerView.canScrollVertically(-1)
+                }
+                return false
+            }
+        })
 
         binding.recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
         binding.recyclerView.adapter = adapter
@@ -109,6 +120,7 @@ class MyAdsFragment : BaseFragment<FragmentMyAdsBinding, MyAdsViewModel>() {
     }
 
     override fun onClickedListener() {
+
         binding.ibNotification.setOnClickListener {
             startActivity(NotificationActivity.newInstance(requireContext()))
         }

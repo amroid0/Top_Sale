@@ -456,14 +456,15 @@ class AdsViewModel(var category: Category?, subCat: LocalStanderModel?) : BaseVi
 
         for (i in 0 until list.size) {
             val item = list.get(i)
-            if (TextUtils.isEmpty(item.placeId)) {
+            val id = item.placeId
+            if (TextUtils.isEmpty(item.placeId) && item.latLng != null) {
                 listLocationToSend.add(arrayListOf(item.latLng.latitude, item.latLng.longitude))
                 if (listLocationToSend.size == list.size) {
                     mRequestListener.onSuccess(listLocationToSend)
                 }
 
             }
-            GoogleNetworkShared.getAsp().general.getPlaceById(Constants.MAP_API_KEY, item.placeId, "name,geometry", object : RequestListener<PlaceResult> {
+            GoogleNetworkShared.getAsp().general.getPlaceById(Constants.MAP_API_KEY, id, "name,geometry", object : RequestListener<PlaceResult> {
                 override fun onSuccess(data: PlaceResult) {
                     val array = arrayListOf<Double>(data.geometry.location.lng, data.geometry.location.lat)
                     listLocationToSend.add(array)
@@ -473,7 +474,9 @@ class AdsViewModel(var category: Category?, subCat: LocalStanderModel?) : BaseVi
 
                 }
 
-                override fun onFail(message: String, code: Int) {}
+                override fun onFail(message: String, code: Int) {
+                 isLoading.postValue(false)
+                }
             })
 
         }
