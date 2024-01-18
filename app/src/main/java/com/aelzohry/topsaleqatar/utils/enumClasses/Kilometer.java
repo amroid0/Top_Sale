@@ -91,9 +91,12 @@ public enum Kilometer {
 //        return list;
 //    }
 
+    static ArrayList<StanderModel> list = new ArrayList<>();
 
     public static ArrayList<StanderModel> getList() {
-        ArrayList<StanderModel> list = new ArrayList<>();
+        return list;
+    }
+    public static void populateList(){
         list.add(new StanderModel(ZEROES.constant, new LocalizedModel(ZEROES.nameAr, ZEROES.nameEn).getLocalized(), false));
         list.add(new StanderModel(FROM_ZERO_TO_9999.constant, new LocalizedModel(FROM_ZERO_TO_9999.nameAr, FROM_ZERO_TO_9999.nameEn).getLocalized(), false));
         list.add(new StanderModel(FROM_10000_TO_19999.constant, new LocalizedModel(FROM_10000_TO_19999.nameAr, FROM_10000_TO_19999.nameEn).getLocalized(), false));
@@ -116,8 +119,6 @@ public enum Kilometer {
         list.add(new StanderModel(FROM_180000_TO_189999.constant, new LocalizedModel(FROM_180000_TO_189999.nameAr, FROM_180000_TO_189999.nameEn).getLocalized(), false));
         list.add(new StanderModel(FROM_190000_TO_199999.constant, new LocalizedModel(FROM_190000_TO_199999.nameAr, FROM_190000_TO_199999.nameEn).getLocalized(), false));
         list.add(new StanderModel(FROM_MORE_200000.constant, new LocalizedModel(FROM_MORE_200000.nameAr, FROM_MORE_200000.nameEn).getLocalized(), false));
-
-        return list;
     }
 
 

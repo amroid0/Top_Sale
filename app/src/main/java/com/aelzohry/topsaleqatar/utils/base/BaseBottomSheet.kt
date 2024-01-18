@@ -83,6 +83,9 @@ abstract class BaseBottomSheet<DB : ViewDataBinding, VM : BaseViewModel> :
                     if (newState == BottomSheetBehavior.STATE_HIDDEN || newState == BottomSheetBehavior.STATE_COLLAPSED) {
                         dismiss()
                     }
+                    if (newState == BottomSheetBehavior.STATE_EXPANDED ) {
+                        onExpand()
+                    }
                 }
 
             })
@@ -91,6 +94,8 @@ abstract class BaseBottomSheet<DB : ViewDataBinding, VM : BaseViewModel> :
         }
         return d
     }
+
+
 
 
     protected fun observerNewHeight() {
@@ -140,6 +145,8 @@ abstract class BaseBottomSheet<DB : ViewDataBinding, VM : BaseViewModel> :
     protected abstract fun observerLiveData()
 
     protected abstract fun isFullHeight(): Boolean
+    public open fun onExpand() {
+    }
 
     private fun performDataBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = DataBindingUtil.inflate(inflater, getLayoutID(), container, false)

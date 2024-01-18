@@ -13,13 +13,14 @@ import com.aelzohry.topsaleqatar.repository.remote.RemoteRepository
 import com.aelzohry.topsaleqatar.utils.base.BaseViewModel
 import com.aelzohry.topsaleqatar.utils.enumClasses.*
 import com.google.android.gms.maps.model.LatLng
+import kotlin.system.measureTimeMillis
 
 /*
 * created by : ahmed mustafa
 * email : ahmed.mustafa15996@gmail.com
 *phone : +201025601465
 */
-class NewFilterViewModel(private val category: Category?, val loadCategory: Boolean) : BaseViewModel() {
+class NewFilterViewModel(private val category: Category?, val loadCategory: Boolean,val regoinList: ArrayList<StanderModel>?=null) : BaseViewModel() {
 
     private var repository: Repository = RemoteRepository()
 
@@ -166,23 +167,30 @@ class NewFilterViewModel(private val category: Category?, val loadCategory: Bool
             loadType()
         }
 
-        loadRegions()
-        loadCarYears()
-        loadCarMakes()
-        loadCarGearbox()
-        loadCarEngineSize()
-        loadCarKm()
-        loadFuelType()
-        loadEngineDriveSystemType()
-        loadCarColor()
+            loadCarYears()
+            loadCarGearbox()
+            loadCarEngineSize()
+            loadCarKm()
+            loadFuelType()
+            loadEngineDriveSystemType()
+            loadCarColor()
+            getCities()
+           loadRegions()
+           loadCarMakes()
 
+    }
+
+    private fun getCities() {
+        val  list =Helper.getCityList()
+        if (list.isEmpty()){
         repository.getCities {
             it?.data.let { lst ->
                 citiesRes.postValue(lst)
             }
         }
-
-
+        }else{
+            citiesRes.postValue(list)
+        }
     }
 
     fun onCityAdLocationSelectedListener(modelLocal: LocalStanderModel?) {
@@ -246,11 +254,17 @@ class NewFilterViewModel(private val category: Category?, val loadCategory: Bool
     }
 
     private fun loadCarMakes() {
-        repository.getCarMake {
-            it?.response?.let { makes ->
-                carMakesRes.postValue(makes)
-                if (makes.isNotEmpty()) loadCarModel(makes[0]._id)
+        val list = Helper.getCarMakeList()
+        if (list.isEmpty()) {
+            repository.getCarMake {
+                it?.response?.let { makes ->
+                    carMakesRes.postValue(makes)
+                    if (makes.isNotEmpty()) loadCarModel(makes[0]._id)
+                }
             }
+        } else {
+            carMakesRes.postValue(list)
+            if (list.isNotEmpty()) loadCarModel(list[0]._id)
         }
     }
 
@@ -294,10 +308,15 @@ class NewFilterViewModel(private val category: Category?, val loadCategory: Bool
 //    }
 
     private fun loadRegions() {
-        repository.getRegion {
-            it?.response?.let { regions ->
-                regionRes.postValue(regions)
+        val list = Helper.getRegionList()
+        if (list.isEmpty()) {
+            repository.getRegion {
+                it?.response?.let { regions ->
+                    regionRes.postValue(regions)
+                }
             }
+        } else {
+            regionRes.postValue(list.toList())
         }
     }
 
@@ -318,12 +337,7 @@ class NewFilterViewModel(private val category: Category?, val loadCategory: Bool
     }
 
     private fun loadCarYears() {
-        val list = ArrayList<StanderModel>()
-        for (i in 2022 downTo 1800) {
-            list.add(StanderModel(i.toString(), i.toString()))
-        }
-        yearRes.postValue(list)
-
+        yearRes.postValue(CarColor.getYearList())
     }
 
     private fun loadCarGearbox() {

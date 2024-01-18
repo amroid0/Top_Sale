@@ -30,6 +30,7 @@ import com.google.android.gms.maps.model.LatLng
 */
 class AdsViewModel(var category: Category?, subCat: LocalStanderModel?) : BaseViewModel() {
 
+      var regoinList: ArrayList<LocalStanderModel>? =null
     private var location: Location? = null
     private var repository: Repository = RemoteRepository()
     var bannersRes = MutableLiveData<List<Banner>>()
@@ -118,8 +119,17 @@ class AdsViewModel(var category: Category?, subCat: LocalStanderModel?) : BaseVi
         loadBanners()
         loadCategory()
         loadCarMakes()
-    }
+        loadRegions()
 
+    }
+    private fun loadRegions() {
+        repository.getRegion {
+            it?.response?.let { regions ->
+                regoinList = ArrayList(regions)
+                regionRes.postValue(regions)
+            }
+        }
+    }
     private fun loadCategory() {
         repository.getCategories {
             it?.data?.let { categories ->

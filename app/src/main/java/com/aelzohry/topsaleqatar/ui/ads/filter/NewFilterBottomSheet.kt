@@ -2,13 +2,15 @@ package com.aelzohry.topsaleqatar.ui.ads.filter
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
-import android.os.Handler
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.annotation.NonNull
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -38,6 +40,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.apmem.tools.layouts.FlowLayout
+import kotlin.system.measureTimeMillis
+
 
 /*
 * created by : ahmed mustafa
@@ -67,13 +71,17 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
   private var regionDialog: Dialog? = null
   private lateinit var thumbView: View
 
+  override fun onExpand(){
+    vm.loadData()
+  }
   override fun getLayoutID(): Int = R.layout.new_filter_bottom_sheet
 
   override fun getViewModel(): NewFilterViewModel = ViewModelProvider(
     this,
     ViewModelFactory(
       arguments?.getParcelable(ARG_CATEGORY),
-      loadCategory = arguments?.getBoolean(LOAD_CATEGORY, true) ?: true
+      loadCategory = false,
+     regoinList = arguments?.getParcelableArrayList(LIST_REGOIN),
     )
   )[NewFilterViewModel::class.java]
 
@@ -91,15 +99,6 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
     binding.llEngineDriveSystemData.removeAllViews()
     binding.llColorData.removeAllViews()
 //        binding.llMakeData.removeAllViews()
-  }
-
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-    Handler().postDelayed({
-      vm.loadData()
-    }, 500)
-
-
   }
 
   private fun setupFullHeight() {
@@ -125,7 +124,8 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
   }
 
   override fun setupUI() {
-    clearAllDummyData()
+    val  time = measureTimeMillis {
+      clearAllDummyData()
     //drawMainCategrios()
 
 
@@ -171,6 +171,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
     vm.etToBathRooms.set(arguments?.getString(ARG_TO_BATH_ROOMS))
 
     vm.listLocations = arguments?.getParcelableArrayList(LIST_LOCATIONS)
+
     vm.listLocations?.let {
       addListLocations(it, true)
     }
@@ -188,12 +189,12 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
     }
 
 
-
-
-    vm.refreshTitles()
+    //vm.refreshTitles()
     initSeekBar()
 
     setSavedFilterData()
+  }
+    Log.d("-bottomsheet-", "setupUI: $time")
 
   }
 
@@ -866,6 +867,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
     private const val ARG_SORT = "SORT"
     private const val LOAD_CATEGORY = "LOAD_CATEGORY"
     private const val LIST_LOCATIONS = "LIST_LOCATIONS"
+    private const val LIST_REGOIN = "LIST_REGOIN"
 
     @JvmStatic
     fun newInstance(
@@ -896,7 +898,8 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       toBathRooms: String?,
       selectedLatLng: LatLng?,
       distance: Int,
-      locationList: ArrayList<PlaceAutocomplete>?
+      locationList: ArrayList<PlaceAutocomplete>?,
+      regoinList: ArrayList<LocalStanderModel>?
 
     ) = NewFilterBottomSheet().apply {
       arguments = Bundle().apply {
@@ -930,6 +933,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
         putBoolean(LOAD_CATEGORY, loadCategory)
 
         putParcelableArrayList(LIST_LOCATIONS, locationList)
+        putParcelableArrayList(LIST_REGOIN, regoinList)
 
       }
     }

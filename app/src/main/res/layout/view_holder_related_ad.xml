@@ -77,7 +77,14 @@
             </LinearLayout>
 
         </LinearLayout>
-
+        <ImageView
+          android:id="@+id/videoLogo"
+          android:layout_width="45dp"
+          android:layout_height="45dp"
+          android:layout_gravity="center"
+          android:src="@drawable/ic_video_preview"
+          android:visibility="gone"
+          />
         <ImageView
             android:id="@+id/fixedImageView"
             android:layout_width="wrap_content"

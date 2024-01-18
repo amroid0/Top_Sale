@@ -144,12 +144,7 @@ class AdDetailsActivity : BaseActivity<FragmentAdDetailsBinding, AdDetailsViewMo
         vm.adRes.observe(this) {
             setAdData(it)
         }
-        vm.notFoundAds.observe(this){
-            if (it){
-              ToastUtil.showToast(getString(R.string.ad_not_found))
-                finish()
-            }
-        }
+
 
         vm.userAdsRes.observe(this) {
             binding.userAdsRecyclerView.adapter = RelatedAdsAdapter(it) {
@@ -210,20 +205,23 @@ class AdDetailsActivity : BaseActivity<FragmentAdDetailsBinding, AdDetailsViewMo
         binding.llCommentsView.setVisible(ad.iaAllowComments == true)
 
         val list: ArrayList<ImageSlider> = ArrayList()
+        ad.video?.let {
+            if (it.isDefault) {
+                list.add(ImageSlider(it.thumb, it.thumb, it.orgUrl, false))
+            }
+        }
+
+        ad.adPhoto.forEach { item ->
+            Log.e("test_image", item.orgUrl)
+            Log.e("test_image", item.thumbUrl)
+            list.add(ImageSlider(item.thumb, item.thumb600, item.thumb600, true))
+        }
 
         ad.video?.let {
-            list.add(ImageSlider(it.thumb, it.thumb, it.orgUrl, false))
-        }
-
-        ad.adPhoto.let {
-            for (item: Photo in it) {
-                Log.e("test_image", item.orgUrl)
-                Log.e("test_image", item.thumbUrl)
-                list.add(ImageSlider(item.thumb, item.thumb600, item.thumb600, true))
+            if (!it.isDefault) {
+                list.add(ImageSlider(it.thumb, it.thumb, it.orgUrl, false))
             }
-
         }
-
         initImageSlider(list)
         binding.imagesRecyclerView.setVisible(list.isNotEmpty())
 
@@ -287,11 +285,19 @@ class AdDetailsActivity : BaseActivity<FragmentAdDetailsBinding, AdDetailsViewMo
         val imagesPreviewList = arrayListOf<Photo>()
 
         ad.video?.let {
+            if (it.isDefault){
             imagesPreviewList.add(it)
+        }
         }
 
         ad.adPhoto.let {
             imagesPreviewList.addAll(it)
+        }
+
+        ad.video?.let {
+            if (!it.isDefault) {
+                imagesPreviewList.add(it)
+            }
         }
 
         binding.imagesRecyclerView.adapter = BaseAdapter<Photo, ViewHolderAdPhotoBinding>(R.layout.view_holder_ad_photo, vm, imagesPreviewList) { vhBind, model, position, adapter ->

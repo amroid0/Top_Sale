@@ -103,6 +103,17 @@ class ImagePagerFragment : Fragment(), View.OnClickListener {
         return view
     }
 
+    override fun onPause() {
+        super.onPause()
+        if (binding.video .isPlaying) {
+            binding.video.stopPlayback()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+            binding.video.resume()
+    }
     override fun onClick(v: View) {
         if (activity is AdDetailsActivity) {
             startActivity(ImageFullScreenActivity.newInstance(activity, list, position))
@@ -219,4 +230,7 @@ class SwipeImageTouchListener(private val swipeView: View) : View.OnTouchListene
 
         ObjectAnimator.ofFloat(swipeView, "translationY", currentPosition, animateTo).setDuration(200).start()
     }
+
+
+
 }

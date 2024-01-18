@@ -15,6 +15,7 @@ class RelatedAdViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 //    val commentsCountTextView = itemView.findViewById<TextView>(R.id.commentsCountTextView)
 //    val likesCountTextView = itemView.findViewById<TextView>(R.id.likesCountTextView)
     val priceTextView = itemView.findViewById<TextView>(R.id.priceTextView)
+    val videoLogo = itemView.findViewById<ImageView>(R.id.videoLogo)
 
     private lateinit var ad: Ad
 
@@ -25,6 +26,8 @@ class RelatedAdViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         priceTextView.text = ad.price?.toInt().toString()
 //        commentsCountTextView.text = ad.commentsCount.toString()
 //        likesCountTextView.text = ad.likesCount.toString()
+        videoLogo.visibility =
+            if (ad.video != null && ad.video.isDefault) View.VISIBLE else View.GONE
         Picasso.get().load(ad.imageUrl).placeholder(R.mipmap.logo).into(thumbImageView)
     }
 }

@@ -176,32 +176,33 @@ interface Repository {
     ): Call<AdsResponse>
 
     fun newAd(
-        title: String,
-        price: String,
-        details: String,
-        categoryId: String,
-        space: String?,
-        typeId: String?,
-        subcategoryId: String?,
-        regionId: String?,
-        cityId: String?,
-        carMakeId: String?,
-        carModelId: String?,
-        carSubModelId: String?,
-        carYear: String?,
-        motionVector: String?,
-        engineSize: String?,
-        km: String?,
-        lat: String?,
-        lng: String?,
-        address: String?,
-        rooms: String?,
-        bathRooms: String?,
-        engineDriveSystem: String?,fuelType: String?, carColor: String?,
-        images: List<File>,
-        videoPath:File?,
-        isAllowComments :Boolean,
-        callBack: (success: Boolean, message: String, ad: Ad?) -> Unit
+      title: String,
+      price: String,
+      details: String,
+      categoryId: String,
+      space: String?,
+      typeId: String?,
+      subcategoryId: String?,
+      regionId: String?,
+      cityId: String?,
+      carMakeId: String?,
+      carModelId: String?,
+      carSubModelId: String?,
+      carYear: String?,
+      motionVector: String?,
+      engineSize: String?,
+      km: String?,
+      lat: String?,
+      lng: String?,
+      address: String?,
+      rooms: String?,
+      bathRooms: String?,
+      engineDriveSystem: String?, fuelType: String?, carColor: String?,
+      images: List<File>,
+      videoPath: File?,
+      isAllowComments: Boolean,
+      isDefaultVideo: Boolean,
+      callBack: (success: Boolean, message: String, ad: Ad?) -> Unit
     ): Call<NewAdResponse>
 
     fun editAd(
@@ -230,7 +231,8 @@ interface Repository {
         deletedPhotos: List<String>?,
         thumbnailType: String?,
         thumbnailId: String?,
-        isAllowComments :Boolean,
+        isAllowComments: Boolean,
+        isDefaultVideo: Boolean,
         callBack: (success: Boolean, message: String, ad: Ad?) -> Unit
     ): Call<NewAdResponse>
 
@@ -238,6 +240,7 @@ interface Repository {
         adId: String,
         callBack: (success: Boolean, message: String) -> Unit
     ): Call<GeneralResponse>
+    fun getMyAdDetail(adId: String, callBack: (ad: Ad?) -> Unit): Call<AdResponse>
 
     fun republishAd(
         adId: String,

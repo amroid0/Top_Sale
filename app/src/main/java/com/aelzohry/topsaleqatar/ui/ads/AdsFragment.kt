@@ -195,7 +195,7 @@ class AdsFragment : BaseActivity<FragmentAdsBinding, AdsViewModel>(), FilterList
 
         binding.btnFilter.setOnClickListener {
             if (!filterBottomSheet.isVisible) {
-                val filterBottomSheet = NewFilterBottomSheet.newInstance(vm.category, vm.selectedSubCat, vm.selectedType, vm.selectedCarMakeItem, vm.selectedModelItem, vm.selectedSubModelItem, vm.selectedCarShow, vm.selectedYear, vm.selectedGearbox, vm.selectedEngineSize, vm.selectedFuelType, vm.selectedEngineDriveSystem, vm.selectedCarColor, vm.selectedKm, vm.selectedRegion, vm.selectedCity, true, vm.fromPrice, vm.toPrice, vm.fromRooms, vm.toRooms, vm.fromBathRooms, vm.toBathRooms, vm.selectedLatLng, vm.distance, vm.listLocation)
+                val filterBottomSheet = NewFilterBottomSheet.newInstance(vm.category, vm.selectedSubCat, vm.selectedType, vm.selectedCarMakeItem, vm.selectedModelItem, vm.selectedSubModelItem, vm.selectedCarShow, vm.selectedYear, vm.selectedGearbox, vm.selectedEngineSize, vm.selectedFuelType, vm.selectedEngineDriveSystem, vm.selectedCarColor, vm.selectedKm, vm.selectedRegion, vm.selectedCity, true, vm.fromPrice, vm.toPrice, vm.fromRooms, vm.toRooms, vm.fromBathRooms, vm.toBathRooms, vm.selectedLatLng, vm.distance, vm.listLocation,vm.regoinList)
                 filterBottomSheet.show(supportFragmentManager, "")
             }
         }

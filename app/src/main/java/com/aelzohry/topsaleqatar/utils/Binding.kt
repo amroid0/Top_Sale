@@ -254,7 +254,7 @@ object Binding {
         iv.setVisible(true)
 
         var photoUrl = ""
-        if (TextUtils.isEmpty(ad.thumbImageUrl)) {
+        if (TextUtils.isEmpty(ad.thumbImageUrl) || (ad.video != null && ad.video.isDefault)) {
             ad.video?.let {
                 photoUrl = it.thumbUrl
             }

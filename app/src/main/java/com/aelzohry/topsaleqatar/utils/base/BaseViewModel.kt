@@ -54,11 +54,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     }
 
     fun onAdClickedListener(v: View, model: Ad) {
-        if (model.status == AdStatus.ACTIVE){
             AdDetailsActivity.newInstance(v.context, model, isClear = false)
-        }else{
-            ToastUtil.showToast(v.context.getString(R.string.ad_not_found))
-        }
     }
 
     fun onWhatsappClick(v: View, ad: Ad) {

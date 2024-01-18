@@ -48,9 +48,12 @@ public enum EngineSize {
     public String getConstant() {
         return constant;
     }
+    static ArrayList<StanderModel> list = new ArrayList<>();
 
     public static ArrayList<StanderModel> getList() {
-        ArrayList<StanderModel> list = new ArrayList<>();
+       return list;
+    }
+    public static void populate(){
         list.add(new StanderModel(ZERO.constant, new LocalizedModel(ZERO.nameAr, ZERO.nameEn).getLocalized(), false));
         list.add(new StanderModel(THREE.constant, new LocalizedModel(THREE.nameAr, THREE.nameEn).getLocalized(), false));
         list.add(new StanderModel(FOUR.constant, new LocalizedModel(FOUR.nameAr, FOUR.nameEn).getLocalized(), false));
@@ -61,7 +64,6 @@ public enum EngineSize {
         list.add(new StanderModel(TWELVE.constant, new LocalizedModel(TWELVE.nameAr, TWELVE.nameEn).getLocalized(), false));
         list.add(new StanderModel(SIXTEEN.constant, new LocalizedModel(SIXTEEN.nameAr, SIXTEEN.nameEn).getLocalized(), false));
         list.add(new StanderModel(OTHER.constant, new LocalizedModel(OTHER.nameAr, OTHER.nameEn).getLocalized(), false));
-        return list;
     }
 
     public static String getTextByConstant(String constant) {

@@ -54,9 +54,23 @@ public enum CarColor {
     public String getConstant() {
         return constant;
     }
+    static ArrayList<StanderModel> yearList = new ArrayList<>();
+    public static void populateYears(){
+        for (int i = 2024; i >= 1800; i--) {
+            yearList.add(new StanderModel(String.valueOf(i), String.valueOf(i),false));
+        }
+
+    }
+    public static ArrayList<StanderModel>getYearList(){
+        return yearList;
+    }
+
+   static ArrayList<StanderModel> list = new ArrayList<>();
 
     public static ArrayList<StanderModel> getList() {
-        ArrayList<StanderModel> list = new ArrayList<>();
+         return list;
+    }
+    public static void populateList(){
         list.add(new StanderModel(WHITE.constant, new LocalizedModel(WHITE.nameAr, WHITE.nameEn).getLocalized(), false));
         list.add(new StanderModel(BLACK.constant, new LocalizedModel(BLACK.nameAr, BLACK.nameEn).getLocalized(), false));
         list.add(new StanderModel(GREEN.constant, new LocalizedModel(GREEN.nameAr, GREEN.nameEn).getLocalized(), false));
@@ -74,7 +88,6 @@ public enum CarColor {
         list.add(new StanderModel(GRAY.constant, new LocalizedModel(GRAY.nameAr, GRAY.nameEn).getLocalized(), false));
         list.add(new StanderModel(BURGUNDY.constant, new LocalizedModel(BURGUNDY.nameAr, BURGUNDY.nameEn).getLocalized(), false));
         list.add(new StanderModel(ANOTHER_COLOR.constant, new LocalizedModel(ANOTHER_COLOR.nameAr, ANOTHER_COLOR.nameEn).getLocalized(), false));
-        return list;
     }
 
     public static String getTextByConstant(String constant) {

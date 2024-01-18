@@ -84,6 +84,17 @@ class AdDetailsViewModel(var ad: Ad?, val adId: String) : BaseViewModel() {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun loadData() {
         isLoading.postValue(true)
+        if (ad?.user?._id  == Helper.userId){
+            repository.getMyAdDetail(adId){ ad ->
+                isLoading.postValue(false)
+                if (ad!=null){
+                    adRes.postValue(ad)
+                    incrementViews()
+                }else{
+                    notFoundAds.postValue(true)
+                }
+            }
+        }else{
         repository.getAd(adId) { ad ->
             isLoading.postValue(false)
             if (ad!=null){
@@ -92,6 +103,7 @@ class AdDetailsViewModel(var ad: Ad?, val adId: String) : BaseViewModel() {
             }else{
               notFoundAds.postValue(true)
             }
+        }
         }
         loadComments()
         loadUserAds()

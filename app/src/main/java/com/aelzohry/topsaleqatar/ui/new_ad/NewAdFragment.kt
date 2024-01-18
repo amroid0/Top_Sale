@@ -85,20 +85,22 @@ import com.aelzohry.topsaleqatar.utils.imageSlider.ImageSlider
 import com.esafirm.imagepicker.features.ImagePicker
 import com.esafirm.imagepicker.features.IpCons.RC_IMAGE_PICKER
 import com.esafirm.imagepicker.model.Image
+import com.kaopiz.kprogresshud.KProgressHUD
+import com.otaliastudios.transcoder.Transcoder
+import com.otaliastudios.transcoder.TranscoderListener
 import com.sangcomz.fishbun.FishBun
 import com.sangcomz.fishbun.FishBun.Companion.FISHBUN_REQUEST_CODE
 import com.sangcomz.fishbun.FishBun.Companion.INTENT_PATH
 import com.sangcomz.fishbun.MimeType
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter
 import com.squareup.picasso.Picasso
-import java.io.BufferedOutputStream
 import java.io.File
-import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import java.util.Calendar
 import java.util.Objects
 import java.util.UUID
+
 
 class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), ImageCompress.onFinishedCompressListListener {
 
@@ -117,7 +119,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
     private var aqarStepDialog: Dialog? = null
 
     private var currentStep = 1
-
+    var hud : KProgressHUD? =null
     override fun getLayoutID(): Int = R.layout.fragment_new_ad
 
     private val images = arrayListOf<Image>()
@@ -126,6 +128,10 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
 
     override fun setupUI() {
         imageCompress = ImageCompress(this)
+           hud  = KProgressHUD.create(this)
+            .setStyle(KProgressHUD.Style.ANNULAR_DETERMINATE)
+            .setLabel("optimizing video...")
+            .setMaxProgress(100)
 
         intent?.let {
             // coming from edit mode
@@ -1043,14 +1049,40 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
                     if (videoUri == null) {
                         return@let
                     }
-                    val mimeType: String = contentResolver.getType(videoUri).toString()
-                    val file = saveVideoToAppScopeStorage(this, videoUri, mimeType)
-                    file?.let {
-                        didPickImages1(listOf(NewImage(null, it.path, false)))
-                    }
+                    optimiozeVideo(videoUri)
                 }
             }
 
+        }
+    }
+
+    private fun optimiozeVideo(videoUri: Uri) {
+        val mimeType: String = contentResolver.getType(videoUri).toString()
+        val file = saveVideoToAppScopeStorage(this, videoUri, mimeType)
+        file?.let {
+            hud?.show()
+            Transcoder.into(file.absolutePath).addDataSource(context, videoUri)
+                .setListener(object : TranscoderListener {
+                    override fun onTranscodeProgress(progress: Double) {
+                        hud?.setProgress((progress * 100).toInt())
+
+                    }
+
+                    override fun onTranscodeCompleted(successCode: Int) {
+                        hud?.dismiss()
+                        didPickImages1(listOf(NewImage(null, it.path, false)))
+                    }
+
+                    override fun onTranscodeCanceled() {
+                        hud?.dismiss()
+                    }
+
+                    override fun onTranscodeFailed(exception: Throwable) {
+                        hud?.dismiss()
+                        didPickImages1(listOf(NewImage(null, it.path, false)))
+                    }
+
+                }).transcode()
         }
     }
 
@@ -1106,11 +1138,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
                             return@let
                         }
 
-                        val mimeType: String = contentResolver.getType(videoUri).toString()
-                        val file = saveVideoToAppScopeStorage(this, videoUri, mimeType)
-                        file?.let {
-                            didPickImages1(listOf(NewImage(null, it.path, false)))
-                        }
+                        optimiozeVideo(videoUri)
 
                         //Save file to upload on server
 //                        val file = saveVideoToAppScopeStorage(this, videoUri, mimeType)
@@ -1152,23 +1180,9 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
 
         val fileName = "capturedVideo.${mimeType.substring(mimeType.indexOf("/") + 1)}"
 
-        val inputStream = context.contentResolver.openInputStream(videoUri)
         val file = File(context.getExternalFilesDir(Environment.DIRECTORY_DCIM), fileName)
         file.deleteOnExit()
         file.createNewFile()
-        val out = FileOutputStream(file)
-        val bos = BufferedOutputStream(out)
-
-        val buf = ByteArray(1024)
-        inputStream?.read(buf)
-        do {
-            bos.write(buf)
-        } while (inputStream?.read(buf) !== -1)
-
-        //out.close()
-        bos.close()
-        inputStream.close()
-
         return file
     }
 
@@ -1378,6 +1392,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
 
         super.onActivityResult(requestCode, resultCode, data)
     }
+
 
     private fun didPickImages(images: List<String>) {
         val newImages = images.map { NewImage(null, it, true) }
@@ -1696,7 +1711,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
 
         vm.ad?.let {
             editBtn()
-        } ?: vm.onAddNewClickedListener(binding.root, images, videoPath, binding.detailsTextView, binding.toggleAllowComments.isChecked)
+        } ?: vm.onAddNewClickedListener(binding.root, images, videoPath, binding.detailsTextView, binding.toggleAllowComments.isChecked,!imagesAdapter.images[imagesAdapter.defaultImageIndex].isImage)
     }
 
     private fun editBtn() {
@@ -1715,7 +1730,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
             thumbnailId = it._id
         }
 
-        vm.onEditAdClickedListener(this, newImages, deletedPhotos, thumbnailType, thumbnailId, binding.detailsTextView, binding.toggleAllowComments.isChecked)
+        vm.onEditAdClickedListener(this, newImages, deletedPhotos, thumbnailType, thumbnailId, binding.detailsTextView, binding.toggleAllowComments.isChecked,!imagesAdapter.images[imagesAdapter.defaultImageIndex].isImage)
     }
 
     override fun onDestroy() {

@@ -201,6 +201,8 @@ interface WebService {
 
     @DELETE("my-ads/{id}")
     fun deleteAd(@Path("id") adId: String): Call<GeneralResponse>
+    @GET("my-ads/{id}")
+    fun getAdDetail(@Path("id") adId: String): Call<AdResponse>
 
     @GET("notifications")
     fun getNotifications(@Query("page") page: Int): Call<NotificationsResponse>

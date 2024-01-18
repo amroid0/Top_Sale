@@ -133,7 +133,7 @@ dependencies {
     //handel rv space
     implementation 'io.cabriole:decorator:1.2.0'
     implementation 'cc.cloudist.acplibrary:library:1.2.1'
-
+    implementation 'com.otaliastudios:transcoder:0.10.5'
 
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.gms:play-services-places:17.0.0'

@@ -9,7 +9,8 @@ data class Photo(
     val _id: String?="",
     val org: String?="",
     val thumb: String?="",
-    val thumb600: String? = ""
+    val thumb600: String? = "",
+    var isDefault:Boolean = false
 ) : Parcelable {
     val orgUrl: String
     get() = org?.toFilePath() ?:{""}.toString()

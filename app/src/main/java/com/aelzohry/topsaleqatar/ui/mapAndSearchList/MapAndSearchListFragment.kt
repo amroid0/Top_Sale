@@ -96,6 +96,7 @@ class MapAndSearchListFragment : BaseBottomSheet<FragmentMapAndSearchListBinding
                     if (::listener.isInitialized) {
                         listener.passLocations(list)
                         dismiss()
+                        dismiss()
                     }
                 }
 

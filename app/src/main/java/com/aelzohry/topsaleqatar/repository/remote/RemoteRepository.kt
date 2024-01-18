@@ -205,6 +205,7 @@ class RemoteRepository : Repository {
             override fun onResponse(call: Call<RegionsResponse>, response: retrofit2.Response<RegionsResponse>) {
                 if (call.isCanceled) return
                 Log.e("test_cities", response.toString())
+                response.body()?.data?.let { Helper.setCityList(it) }
                 callBack(response.body())
             }
         })
@@ -221,6 +222,7 @@ class RemoteRepository : Repository {
 
             override fun onResponse(call: Call<BaseListModel<LocalStanderModel>>, response: retrofit2.Response<BaseListModel<LocalStanderModel>>) {
                 if (call.isCanceled) return
+                response.body()?.let { Helper.setRegionList(ArrayList(it.response)) }
                 callBack(response.body())
             }
         })
@@ -259,6 +261,7 @@ class RemoteRepository : Repository {
 
             override fun onResponse(call: Call<BaseListModel<StanderModel1>>, response: retrofit2.Response<BaseListModel<StanderModel1>>) {
                 if (call.isCanceled) return
+                response.body()?.response?.let { Helper.setCarMakeList( ArrayList(it)) }
                 callBack(response.body())
             }
         })
@@ -300,6 +303,7 @@ class RemoteRepository : Repository {
 
             override fun onResponse(call: Call<BaseListModel<StanderModel1>>, response: retrofit2.Response<BaseListModel<StanderModel1>>) {
                 if (call.isCanceled) return
+                response.body()?.response?.let { Helper.setCarModelList( ArrayList(it)) }
                 callBack(response.body())
             }
         })
@@ -794,13 +798,37 @@ class RemoteRepository : Repository {
         return call
     }
 
-    override fun newAd(title: String, price: String, details: String, categoryId: String,
-        space: String?, typeId: String?, subcategoryId: String?, regionId: String?,
-        cityId: String?, carMakeId: String?, carModelId: String?, carSubModelId: String?,
-        carYear: String?, motionVector: String?, engineSize: String?, km: String?,
-        lat: String?, lng: String?, address: String?, rooms: String?, bathRooms: String?,
-        engineDriveSystem: String?, fuelType: String?, carColor: String?,
-        images: List<File>,videoPath:File?, isAllowComments: Boolean, callBack: (success: Boolean, message: String, ad: Ad?) -> Unit): Call<NewAdResponse> {
+    override fun newAd(
+        title: String,
+        price: String,
+        details: String,
+        categoryId: String,
+        space: String?,
+        typeId: String?,
+        subcategoryId: String?,
+        regionId: String?,
+        cityId: String?,
+        carMakeId: String?,
+        carModelId: String?,
+        carSubModelId: String?,
+        carYear: String?,
+        motionVector: String?,
+        engineSize: String?,
+        km: String?,
+        lat: String?,
+        lng: String?,
+        address: String?,
+        rooms: String?,
+        bathRooms: String?,
+        engineDriveSystem: String?,
+        fuelType: String?,
+        carColor: String?,
+        images: List<File>,
+        videoPath: File?,
+        isAllowComments: Boolean,
+        isDefaultVideo: Boolean,
+        callBack: (success: Boolean, message: String, ad: Ad?) -> Unit
+    ): Call<NewAdResponse> {
 
         val parts: ArrayList<MultipartBody.Part> = arrayListOf()
         parts.add(MultipartBody.Part.createFormData("title", title))
@@ -831,6 +859,7 @@ class RemoteRepository : Repository {
 
         fuelType?.let { parts.add(MultipartBody.Part.createFormData("fuelType", fuelType)) }
         parts.add(MultipartBody.Part.createFormData("iaAllowComments", isAllowComments.toString()))
+        parts.add(MultipartBody.Part.createFormData("videoIsDefault", isDefaultVideo.toString()))
 
         engineDriveSystem?.let {
             parts.add(MultipartBody.Part.createFormData("pushFatisType", engineDriveSystem))
@@ -925,7 +954,36 @@ class RemoteRepository : Repository {
         return MultipartBody.Part.createFormData(partName, file.name, requestFile)
     }
 
-    override fun editAd(adId: String, title: String, price: String, details: String, categoryId: String, typeId: String?, subcategoryId: String?, regionId: String?, cityId: String?, carMakeId: String?, carModelId: String?, carSubModelId: String?, carYear: String?, motionVector: String?, engineSize: String?, km: String?, lat: String?, lng: String?, address: String?, rooms: String?, bathRooms: String?, images: List<File>, deletedPhotos: List<String>?, thumbnailType: String?, thumbnailId: String?, isAllowComments: Boolean, callBack: (success: Boolean, message: String, ad: Ad?) -> Unit): Call<NewAdResponse> {
+    override fun editAd(
+        adId: String,
+        title: String,
+        price: String,
+        details: String,
+        categoryId: String,
+        typeId: String?,
+        subcategoryId: String?,
+        regionId: String?,
+        cityId: String?,
+        carMakeId: String?,
+        carModelId: String?,
+        carSubModelId: String?,
+        carYear: String?,
+        motionVector: String?,
+        engineSize: String?,
+        km: String?,
+        lat: String?,
+        lng: String?,
+        address: String?,
+        rooms: String?,
+        bathRooms: String?,
+        images: List<File>,
+        deletedPhotos: List<String>?,
+        thumbnailType: String?,
+        thumbnailId: String?,
+        isAllowComments: Boolean,
+        isDefaultVideo: Boolean,
+        callBack: (success: Boolean, message: String, ad: Ad?) -> Unit
+    ): Call<NewAdResponse> {
         val parts: ArrayList<MultipartBody.Part> = arrayListOf()
 
         parts.add(MultipartBody.Part.createFormData("title", title))
@@ -956,6 +1014,7 @@ class RemoteRepository : Repository {
         }
 
         parts.add(MultipartBody.Part.createFormData("iaAllowComments", isAllowComments.toString()))
+        parts.add(MultipartBody.Part.createFormData("videoIsDefault", isDefaultVideo.toString()))
 
 
         images.forEach { file ->
@@ -996,6 +1055,26 @@ class RemoteRepository : Repository {
             }
         })
 
+        return call
+    }
+
+    override fun getMyAdDetail(
+        adId: String,
+        callBack: (ad: Ad?) -> Unit
+    ): Call<AdResponse> {
+        val call = api.getAdDetail(adId)
+        call.enqueue(object : Callback<AdResponse> {
+            override fun onFailure(call: Call<AdResponse>, t: Throwable) {
+                if (call.isCanceled) return
+                callBack(null)
+            }
+
+            override fun onResponse(call: Call<AdResponse>, response: retrofit2.Response<AdResponse>) {
+                response.body()?.toString()?.let { Log.e("ad_details", it) }
+                if (call.isCanceled) return
+                callBack(response.body()?.data)
+            }
+        })
         return call
     }
 

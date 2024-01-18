@@ -1,7 +1,6 @@
 package com.aelzohry.topsaleqatar.ui.new_ad
 
 import android.app.Activity
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ObservableField
@@ -331,7 +330,14 @@ class NewAdViewModel : BaseViewModel() {
     }
 
 
-    fun onAddNewClickedListener(v: View, images: List<File>,videoPath : File?,edDesc : CustomEditText,isAllComments:Boolean) {
+    fun onAddNewClickedListener(
+      v: View,
+      images: List<File>,
+      videoPath: File?,
+      edDesc: CustomEditText,
+      isAllComments: Boolean,
+      isDefaultVideo: Boolean
+    ) {
 
         isLoading.postValue(true)
         repository.newAd(
@@ -360,7 +366,8 @@ class NewAdViewModel : BaseViewModel() {
             images,
             videoPath,
             isAllComments,
-        ) { success, message, ad ->
+            isDefaultVideo,
+            ) { success, message, ad ->
             showToast.postValue(message)
             isLoading.postValue(false)
             if (success) {
@@ -373,7 +380,8 @@ class NewAdViewModel : BaseViewModel() {
 
     fun onEditAdClickedListener(
         v: Activity, images: List<File>, deletedPhotos: List<String>?, thumbnailType: String?,
-        thumbnailId: String?,edDesc : CustomEditText,isAllComments:Boolean
+        thumbnailId: String?,edDesc : CustomEditText,isAllComments:Boolean,      isDefaultVideo: Boolean
+
     ) {
         isLoading.postValue(true)
 
@@ -403,7 +411,7 @@ class NewAdViewModel : BaseViewModel() {
             deletedPhotos,
             thumbnailType,
             thumbnailId,
-            isAllComments,
+            isAllComments,isDefaultVideo
         ) { success, message, updatedAd ->
             showToast.postValue(message)
             isLoading.postValue(false)

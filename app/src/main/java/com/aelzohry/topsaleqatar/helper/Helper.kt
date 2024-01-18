@@ -17,6 +17,10 @@ import android.widget.Toast
 import com.aelzohry.topsaleqatar.App.Companion.context
 import com.aelzohry.topsaleqatar.R
 import com.aelzohry.topsaleqatar.model.Category
+import com.aelzohry.topsaleqatar.model.LocalStanderModel
+import com.aelzohry.topsaleqatar.model.Region
+import com.aelzohry.topsaleqatar.model.StanderModel
+import com.aelzohry.topsaleqatar.model.StanderModel1
 import com.aelzohry.topsaleqatar.repository.Repository
 import com.aelzohry.topsaleqatar.repository.remote.RemoteRepository
 import com.aelzohry.topsaleqatar.ui.MainActivity
@@ -52,6 +56,10 @@ object Helper {
     private const val LAT_KEY = "LAT_KEY"
     private const val LNG_KEY = "LNG_KEY"
     private const val CATEGORY_LIST = "CATEGORY_LIST"
+    private const val REGOIN_LIST = "REGOIN_LIST"
+    private const val CITY_LIST = "CITY_LIST"
+    private const val CAREMAKE_LIST = "CAREMAKE_LIST"
+    private const val CAR_MODEL_LIST = "CAR_MODEL_LIST"
 
     fun logout() {
         authToken = null
@@ -69,13 +77,68 @@ object Helper {
         val json = gson.toJson(categories)
         userPreferences.edit().putString(CATEGORY_LIST, json).apply()
     }
+    fun setCityList(list: ArrayList<Region>) {
+        val gson = Gson()
+        val json = gson.toJson(list)
+        userPreferences.edit().putString(CITY_LIST, json).apply()
+    }
+    fun setRegionList(list: ArrayList<LocalStanderModel>) {
+        val gson = Gson()
+        val json = gson.toJson(list)
+        userPreferences.edit().putString(REGOIN_LIST, json).apply()
+    }
+    fun setCarMakeList(list: ArrayList<StanderModel1>) {
+        val gson = Gson()
+        val json = gson.toJson(list)
+        userPreferences.edit().putString(CAREMAKE_LIST, json).apply()
+    }
+    fun setCarModelList(list: ArrayList<StanderModel1>) {
+        val gson = Gson()
+        val json = gson.toJson(list)
+        userPreferences.edit().putString(CAR_MODEL_LIST, json).apply()
+    }
+    fun getCityList() : ArrayList<Region>{
+        val gson = Gson()
+        val json: String? = userPreferences.getString(CITY_LIST, "")
+        val type = object : TypeToken<List<Region>>() {}.type
+        val list: ArrayList<Region>? = gson.fromJson<ArrayList<Region>>(json, type)
+        return list ?: ArrayList<Region>()
+    }
+    fun getRegionList(): ArrayList<LocalStanderModel> {
+        val gson = Gson()
+        val json: String? = userPreferences.getString(REGOIN_LIST, "")
+        val type = object : TypeToken<List<LocalStanderModel>>() {}.type
+        val list: ArrayList<LocalStanderModel>? = gson.fromJson<ArrayList<LocalStanderModel>>(json, type)
+        return  list ?: ArrayList<LocalStanderModel>()
+    }
+    fun getCarMakeList() : ArrayList<StanderModel1>{
+        val gson = Gson()
+        val json: String? = userPreferences.getString(CAREMAKE_LIST, "")
+        val type = object : TypeToken<List<StanderModel1>>() {}.type
+        val list: ArrayList<StanderModel1>? = gson.fromJson<ArrayList<StanderModel1>>(json, type)
+        return  list ?: ArrayList<StanderModel1>()
+    }
+    fun getCarModelList() : ArrayList<StanderModel1>{
+        val gson = Gson()
+        val json: String? = userPreferences.getString(CAR_MODEL_LIST, "")
+        val type = object : TypeToken<List<StanderModel1>>() {}.type
+        val list: ArrayList<StanderModel1>? = gson.fromJson<ArrayList<StanderModel1>>(json, type)
+        return  list ?: ArrayList<StanderModel1>()
+    }
+
+
+
+    var catList = ArrayList<Category>()
 
     fun getCategoryList(): ArrayList<Category> {
+        return catList
+    }
+    fun populateCategoryList(){
         val gson = Gson()
         val json: String? = userPreferences.getString(CATEGORY_LIST, "")
         val type = object : TypeToken<List<Category>>() {}.type
         val list: ArrayList<Category>? = gson.fromJson<ArrayList<Category>>(json, type)
-        return list ?: ArrayList<Category>()
+        catList =  list ?: ArrayList<Category>()
     }
 
     var userId: String?
@@ -452,6 +515,8 @@ object Helper {
 
         }
     }
+
+
 
     interface Listener {
         fun passUnSeenNotificationNumber(notificationNumber: Int,messagesNumber: Int)

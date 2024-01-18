@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+       <import type="android.view.View"/>
         <variable
             name="vm"
             type="com.aelzohry.topsaleqatar.utils.base.BaseViewModel" />
@@ -43,7 +43,14 @@
                     android:scaleType="centerCrop"
                     app:riv_corner_radius="@dimen/default_radius"
                     tools:src="@tools:sample/avatars" />
-
+                <ImageView
+                  android:id="@+id/videoLogo"
+                  android:layout_width="45dp"
+                  android:layout_height="45dp"
+                  android:layout_gravity="center"
+                  android:src="@drawable/ic_video_preview"
+                  android:visibility="@{model.video != null &amp;&amp; model.video.isDefault ? View.VISIBLE : View.GONE}"
+                  />
                 <com.wang.avi.AVLoadingIndicatorView
                     android:id="@+id/loading"
                     style="@style/AVLoadingIndicatorView.Small"
