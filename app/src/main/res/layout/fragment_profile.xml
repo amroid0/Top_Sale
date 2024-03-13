@@ -98,6 +98,7 @@
                                 android:lines="1"
                                 android:minHeight="40dp"
                                 android:padding="8dp"
+                                android:maxLength="50"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/ad_input_text_size" />
@@ -206,6 +207,7 @@
                             android:lines="1"
                             android:minHeight="40dp"
                             android:minLines="5"
+                            android:maxLength="150"
                             android:padding="8dp"
                             android:textColor="@color/black"
                             android:textSize="@dimen/ad_input_text_size" />

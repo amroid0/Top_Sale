@@ -5,6 +5,7 @@ import static com.aelzohry.topsaleqatar.utils.Binding.setImage;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Point;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -42,6 +43,7 @@ public class SliderDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 //        height_px = 200;
         height_px = context.getResources().getDimensionPixelSize(R.dimen.slider_h);
         width_px = Resources.getSystem().getDisplayMetrics().widthPixels;
+        Log.d("hhh", "onAttachedToRecyclerView: "+width_px +"X"+height_px);
     }
 
     @NonNull

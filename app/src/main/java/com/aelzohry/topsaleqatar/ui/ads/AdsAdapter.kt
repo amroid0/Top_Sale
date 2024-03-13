@@ -65,10 +65,10 @@ class AdsAdapter(val itemWidth: Int, val clickListener: (Ad) -> Unit, private va
             val banner = item
             bannerHolder.bind(banner)
 
-            if (TextUtils.isEmpty(banner.photoUrl)) {
-                Binding.setImageNoPlaceHolderWithLoader(bannerHolder.binding.iv.context, bannerHolder.binding.iv, bannerHolder.binding.loading, banner.photoUrl)
+            if (TextUtils.isEmpty(banner.photo)) {
+                Binding.setImageNoPlaceHolderWithLoader(bannerHolder.binding.iv.context, bannerHolder.binding.iv, bannerHolder.binding.loading,"")
             } else {
-                Binding.setImageNoPlaceHolderWithLoader(bannerHolder.binding.iv.context, bannerHolder.binding.iv, bannerHolder.binding.loading, "")
+                Binding.setImageNoPlaceHolderWithLoader(bannerHolder.binding.iv.context, bannerHolder.binding.iv, bannerHolder.binding.loading, banner.photo)
             }
         } else {
 
