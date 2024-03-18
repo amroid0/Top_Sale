@@ -204,7 +204,6 @@
                             android:hint="@string/bio_hint"
                             android:importantForAutofill="no"
                             android:inputType="text|textMultiLine"
-                            android:lines="1"
                             android:minHeight="40dp"
                             android:minLines="5"
                             android:maxLength="150"

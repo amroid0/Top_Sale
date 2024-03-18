@@ -1820,7 +1820,7 @@ class NewImage(var photo: Photo?, var localPath: String?, var isImage: Boolean) 
                 val originalBitmap = rotateImageIfRequired(it)
                 bitmap = originalBitmap
                 val imgName = UUID.randomUUID().toString()
-                saveImageToGallery(originalBitmap, imgName).toString()
+                //saveImageToGallery(originalBitmap, imgName).toString()
                 val downloadedFile = File(Environment.getExternalStorageDirectory().path, Environment.DIRECTORY_PICTURES + File.separator + "topsale/ads" + "/Image_" + imgName + ".jpeg")
 
 //            this.resizedLocalFile = File("")
