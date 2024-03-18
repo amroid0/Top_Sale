@@ -370,7 +370,6 @@
                             android:id="@+id/locationButton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:is_visible="@{vm.selectedCat!=null? vm.selectedCat.isLocationRequired  : false}"
                             android:text="@{vm.address}"
                             app:editable="false"
                             app:hint="@string/select_ad_location"

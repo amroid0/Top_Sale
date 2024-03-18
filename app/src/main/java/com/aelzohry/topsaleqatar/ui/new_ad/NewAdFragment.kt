@@ -214,7 +214,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
                 binding.tvViewOne.setTextColor(ContextCompat.getColor(this, R.color.grayBorderColor))
                 binding.tvViewTwo.setTextColor(ContextCompat.getColor(this, R.color.grayBorderColor))
 
-//                binding.locationButton.setVisible(vm.selectedCat?.isLocationRequired == true)
+                binding.locationButton.setVisible(vm.selectedCat?.isLocationRequired == true)
                 binding.tvViewThree.setTextColor(ContextCompat.getColor(this, R.color.colorAccent))
                 binding.publishButton.text = getString(R.string.publish)
 
