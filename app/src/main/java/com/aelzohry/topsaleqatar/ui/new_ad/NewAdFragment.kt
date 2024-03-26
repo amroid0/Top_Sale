@@ -285,7 +285,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
             binding.toggleAllowComments.performClick()
         }
 
-        binding.edCarShow.setOnClickListener {
+        /*binding.edCarShow.setOnClickListener {
             val dialog: CarShowsFragment = CarShowsFragment.newInstance()
             supportFragmentManager.beginTransaction().add(dialog, "DialogMessage").commitAllowingStateLoss()
             dialog.setListener(object : CarShowsFragment.Listener {
@@ -301,7 +301,7 @@ class NewAdFragment : BaseActivity<FragmentNewAdBinding, NewAdViewModel>(), Imag
                 }
 
             })
-        }
+        }*/
 
     }
 

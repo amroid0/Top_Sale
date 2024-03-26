@@ -2,15 +2,14 @@ package com.aelzohry.topsaleqatar.ui.ads.filter
 
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.LayoutDirection
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
+import android.widget.HorizontalScrollView
 import android.widget.TextView
-import androidx.annotation.NonNull
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -124,6 +123,8 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
   }
 
   override fun setupUI() {
+
+
     val  time = measureTimeMillis {
       clearAllDummyData()
     //drawMainCategrios()
@@ -595,6 +596,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
         )
         binding.llSubCatData.addView(getViewForSubCategoryField(it, binding.llSubCatData, false))
       }
+      scorlllToRight(binding.subcatScroll)
     }
 
     vm.typeRes.observe(this) {
@@ -602,13 +604,8 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       it.forEach {
         binding.llTypeData.addView(getViewForTypField(it, binding.llTypeData, false))
       }
+      scorlllToRight(binding.typeScroll)
 
-//            typeDialog = Dialog(requireContext())
-//            setupDialog(typeDialog, it) { modelLocal: LocalStanderModel ->
-//                getViewModel().selectedType = modelLocal
-//                getViewModel().selectedTypeText.set(modelLocal.title.localized)
-////                5f70d8a6ddd69f66a0387c69 // for rent
-//            }
     }
 
 
@@ -619,6 +616,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
         binding.llRegionData.addView(getViewForRegionField(it, binding.llRegionData, false))
       }
 
+      scorlllToRight(binding.regionScroll)
 
       regionDialog = Dialog(requireContext())
       setupDialog(regionDialog, it) { modelLocal: LocalStanderModel ->
@@ -643,6 +641,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       list.forEach {
         binding.llCityData.addView(getViewForCityField(it, binding.llCityData, false))
       }
+      scorlllToRight(binding.cityScroll)
 
       citiesAdLocationDialog = Dialog(requireContext())
       setupDialog(citiesAdLocationDialog, list, { modelLocal: LocalStanderModel, i ->
@@ -685,6 +684,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       it.forEach {
         binding.llYearData.addView(getViewForYearField(it))
       }
+      scorlllToRight(binding.yearScroll)
 
       yearDialog = Dialog(requireContext())
       setupListDialogs(yearDialog, it) { model ->
@@ -699,6 +699,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       it.forEach {
         binding.llGearboxData.addView(getViewForGearBoxField(it))
       }
+      scorlllToRight(binding.gearboxScroll)
 
 
       gearboxDialog = Dialog(requireContext())
@@ -715,6 +716,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       it.forEach {
         binding.llEngineSizeData.addView(getViewForEngineSizeField(it))
       }
+      scorlllToRight(binding.engineScroll)
 
       engineSizeDialog = Dialog(requireContext())
       setupListDialogs(engineSizeDialog, it) { model ->
@@ -729,6 +731,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       it.forEach {
         binding.llKmData.addView(getViewForKmField(it))
       }
+      scorlllToRight(binding.kmScroll)
 
 
       kmDialog = Dialog(requireContext())
@@ -744,6 +747,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       it.forEach {
         binding.llFueltTypeData.addView(getViewForFuelTypeField(it))
       }
+      scorlllToRight(binding.fuelScroll)
 
 
       fuelTypeDialog = Dialog(requireContext())
@@ -760,6 +764,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
         binding.llEngineDriveSystemData.addView(getViewForEngineDriveSystemField(it))
       }
 
+      scorlllToRight(binding.driveScroll)
 
       engineDriveSystemDialog = Dialog(requireContext())
       setupListDialogs(engineDriveSystemDialog, it) { model ->
@@ -773,6 +778,7 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
       it.forEach {
         binding.llColorData.addView(getViewForCarColorField(it))
       }
+      scorlllToRight(binding.colorScroll)
 
 
       carColorDialog = Dialog(requireContext())
@@ -832,6 +838,17 @@ class NewFilterBottomSheet : BaseBottomSheet<NewFilterBottomSheetBinding, NewFil
     //endregion new code
 
 
+  }
+
+  private fun scorlllToRight(scrollview: HorizontalScrollView) {
+    val locale = resources.configuration.locale
+    val languageCode = locale.language
+
+    if (languageCode.startsWith("ar")) {
+      scrollview.post {
+        scrollview.fullScroll(View.FOCUS_RIGHT)
+      }
+    }
   }
 
   override fun isFullHeight(): Boolean = true

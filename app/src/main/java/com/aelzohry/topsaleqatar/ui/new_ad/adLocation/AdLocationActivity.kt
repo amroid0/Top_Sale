@@ -45,7 +45,7 @@ class AdLocationActivity : BaseActivity<ActivityAdLocationBinding, AdLocationVie
     private var canSelectLocation = true
     private var firstZoom = true
     private var canDoCameraIdle = true
-    private var zoomLevel = 15f
+    private var zoomLevel = 9f
     private val shapeCoordinates = ArrayList<LatLng>()
 
     override fun getLayoutID(): Int = R.layout.activity_ad_location
@@ -244,7 +244,7 @@ class AdLocationActivity : BaseActivity<ActivityAdLocationBinding, AdLocationVie
         }
 
         if (address == QATAT_LOCATION) {
-            zoomLevel = 9.5f
+            zoomLevel = 9f
         }
 
         map?.apply {

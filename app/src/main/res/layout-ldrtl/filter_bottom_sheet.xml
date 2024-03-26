@@ -11,6 +11,8 @@
   </data>
 
   <LinearLayout
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/border_rect_top"
@@ -41,7 +43,7 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="string/all"
+        android:text="@stringjhhhj"
         android:textColor="@color/mainColor"
         android:textSize="16sp"
         app:cornerRadius="4dp"
@@ -81,6 +83,7 @@
 
           <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/ll_main_cat"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:is_visible="@{vm.loadCategory}"
@@ -98,7 +101,6 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:gravity="center_vertical"
-              android:visibility="gone"
               android:orientation="horizontal">
 
               <TextView
@@ -238,7 +240,7 @@
             <org.apmem.tools.layouts.FlowLayout
               android:visibility="gone"
               tools:visibility="visible"
-              android:gravity="start"
+              android:gravity="right"
               android:layout_weight="1"
               android:layout_marginEnd="-8dp"
               android:id="@+id/flow_locations"
@@ -369,7 +371,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            tools:visibility="visible"
             android:layout_marginTop="@dimen/marginBtnView"
             android:orientation="vertical">
 
@@ -879,8 +880,7 @@
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
-          android:visibility="gone"
-          tools:visibility="visible"
+          tools:visibility="gone"
           android:id="@+id/ll_rooms"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -954,8 +954,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-          tools:visibility="visible"
-          android:visibility="gone"
+          tools:visibility="gone"
           android:id="@+id/ll_bath_room_number"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -1029,6 +1028,67 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
+
+
+        <LinearLayout
+          android:visibility="gone"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:layout_marginTop="@dimen/smallMargin"
+          android:gravity="center|start">
+
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/normalMargin"
+            android:text="@string/from"
+            android:textColor="@color/text_color_black" />
+
+          <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/filter_field_bg"
+            android:gravity="center"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLength="8"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@={vm.etFromRooms}"
+            android:textColor="@color/text_color_black"
+            android:textColorHint="@color/hint_color"
+
+            android:textSize="14sp" />
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normalMargin"
+            android:layout_marginEnd="@dimen/normalMargin"
+            android:text="@string/to"
+            android:textColor="@color/text_color_black" />
+
+          <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/filter_field_bg"
+            android:gravity="center"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLength="6"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@={vm.etToRooms}"
+            android:textColor="@color/text_color_black"
+            android:textColorHint="@color/hint_color"
+
+            android:textSize="14sp" />
+
+
+        </LinearLayout>
 
 
         <androidx.appcompat.widget.LinearLayoutCompat

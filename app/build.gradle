@@ -21,8 +21,8 @@ android {
         applicationId "qa.topsale"
         minSdkVersion 23
         targetSdkVersion 34
-        versionCode 32
-        versionName "4.4.7"
+        versionCode 33
+        versionName "4.4.8"
 
         archivesBaseName = "TopSale_" + versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

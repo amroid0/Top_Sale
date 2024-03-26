@@ -309,6 +309,7 @@
                             app:label="@string/engine_color_fuel"
                             app:show_label="false" />
 
+<!--
                         <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText
                             android:id="@+id/ed_car_show"
                             android:layout_width="match_parent"
@@ -319,6 +320,7 @@
                             app:hint="المعرض"
                             app:label="المعرض"
                             app:show_label="false" />
+-->
 
 
                         <com.aelzohry.topsaleqatar.utils.customViews.CustomEditText

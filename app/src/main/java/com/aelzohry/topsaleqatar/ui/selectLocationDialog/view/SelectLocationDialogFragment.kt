@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.aelzohry.topsaleqatar.R
 import com.aelzohry.topsaleqatar.databinding.FragmentSelectLocationDialogBinding
+import com.aelzohry.topsaleqatar.helper.Constants
 import com.aelzohry.topsaleqatar.ui.mapAndSearchList.MapAndSearchListFragment
 import com.aelzohry.topsaleqatar.ui.selectLocationDialog.viewModel.SelectLocationViewModel
 import com.aelzohry.topsaleqatar.utils.GPSTracker
@@ -43,6 +44,8 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
     private var currentProgress = 1
 
     private lateinit var listener: LocationListener
+    private var firstLoad = true
+
 
     companion object {
         var LOCATION_PERMISSION_ID = 101
@@ -142,8 +145,7 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
+         requestPermissions(
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 LOCATION_PERMISSION_ID
             )
@@ -152,11 +154,24 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
         mapFragment.getMapAsync(this)
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == LOCATION_PERMISSION_ID) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+             mapFragment.getMapAsync(this)
+            } else {
+                // Permission denied, handle accordingly (e.g., show a message)
+            }
+        }
+    }
 
 
 
     fun getCurrentLocation() {
-        currentLocation = GPSTracker(requireActivity()) { location, err ->
+        changeLocation(
+        Constants.QATAT_LOCATION)
+        /*currentLocation = GPSTracker(requireActivity()) { location, err ->
 
             if (err != null) {
 //                Toast.makeText(this, this.getString(R.string.location_err), Toast.LENGTH_LONG).show()
@@ -168,7 +183,7 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
             }
 
         }
-        lifecycle.addObserver(currentLocation)
+        lifecycle.addObserver(currentLocation)*/
     }
 
     @SuppressLint("MissingPermission")
@@ -185,7 +200,11 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
 //            vm.lng = map.cameraPosition.target.longitude
 //            getAddress(map.cameraPosition.target)
 
-            selectedLocation = map.cameraPosition.target
+            selectedLocation =
+                if (firstLoad) Constants.QATAT_LOCATION else map.cameraPosition.target
+            if (firstLoad) {
+                firstLoad = false
+            }
             Log.e("test_idle", canMakeZoom.toString())
             if (canRedrawCircle) {
                 reDrawCircle()
@@ -244,7 +263,10 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
 //                draggable(false)
 //            })
             // setup zoom level
-            selectedLocation = address
+            selectedLocation = if (firstLoad)Constants.QATAT_LOCATION else address
+            if (firstLoad){
+                firstLoad = false
+            }
             canMakeZoom = true
             reDrawCircle()
 //            canRedrawCircle =false
@@ -274,7 +296,9 @@ class SelectLocationDialogFragment : BaseFragment<FragmentSelectLocationDialogBi
                     map.animateCamera(
                         CameraUpdateFactory.newLatLngZoom(
                             circle.getCenter(),
-                            getZoomLevel(circle).toFloat()
+                            if (selectedLocation == Constants.QATAT_LOCATION) 9.toFloat() else getZoomLevel(
+                                circle
+                            ).toFloat()
                         )
                     )
                 }

@@ -14,10 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/border_rect_top"
-        android:layoutDirection="ltr"
         android:orientation="vertical"
-        android:paddingBottom="16dp"
-        android:textDirection="ltr">
+        android:paddingBottom="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -148,7 +146,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
-                            android:layout_marginBottom="@dimen/marginBtnView">
+                            android:layout_marginBottom="@dimen/marginBtnView"
+                          android:id="@+id/subcat_scroll">
 
                             <androidx.appcompat.widget.LinearLayoutCompat
                                 android:id="@+id/ll_sub_cat_data"
@@ -244,7 +243,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="-8dp"
                             android:layout_weight="1"
-                            android:gravity="left"
+                            android:gravity="start"
                             android:visibility="gone"
                             tools:ignore="RtlHardcoded"
                             tools:visibility="visible">
@@ -292,7 +291,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
-                            android:layout_marginBottom="@dimen/marginBtnView">
+                            android:layout_marginBottom="@dimen/marginBtnView"
+                          android:id="@+id/city_scroll">
 
                             <androidx.appcompat.widget.LinearLayoutCompat
                                 android:id="@+id/ll_city_data"
@@ -339,6 +339,7 @@
                         <HorizontalScrollView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/type_scroll"
                             android:layout_marginTop="@dimen/marginBtnView"
                             android:layout_marginBottom="@dimen/marginBtnView">
 
@@ -389,7 +390,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
-                            android:layout_marginBottom="@dimen/marginBtnView">
+                            android:layout_marginBottom="@dimen/marginBtnView"
+                          android:id="@+id/region_scroll">
 
                             <androidx.appcompat.widget.LinearLayoutCompat
                                 android:id="@+id/ll_region_data"
@@ -667,6 +669,7 @@
 
 
                         <HorizontalScrollView
+                          android:id="@+id/year_scroll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
@@ -714,6 +717,7 @@
 
 
                         <HorizontalScrollView
+                          android:id="@+id/gearbox_scroll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
@@ -761,6 +765,7 @@
 
 
                         <HorizontalScrollView
+                          android:id="@+id/engine_scroll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
@@ -808,6 +813,7 @@
 
 
                         <HorizontalScrollView
+                          android:id="@+id/km_scroll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
@@ -855,6 +861,7 @@
 
 
                         <HorizontalScrollView
+                          android:id="@+id/fuel_scroll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
@@ -902,6 +909,7 @@
 
 
                         <HorizontalScrollView
+                          android:id="@+id/drive_scroll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
@@ -949,6 +957,7 @@
 
 
                         <HorizontalScrollView
+                          android:id="@+id/color_scroll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/marginBtnView"
