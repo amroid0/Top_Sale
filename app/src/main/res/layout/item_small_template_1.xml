@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    <com.aelzohry.topsaleqatar.utils.RoundedView
+    <FrameLayout
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginEnd="16dp"
@@ -39,12 +39,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="-20dp"
             android:maxLength="12"
-            android:text="12345678912" />
+          android:textColor="@color/black"
+          android:textStyle="bold"
+            android:text="dummy text" />
 
 
-    </com.aelzohry.topsaleqatar.utils.RoundedView>
+    </FrameLayout>
     </FrameLayout>
 
 

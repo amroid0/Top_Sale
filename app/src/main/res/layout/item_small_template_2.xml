@@ -34,11 +34,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="60dp"
                 android:maxLength="70"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:text="This is dummy Text For testing not real data, only to test if it inside width" />
+              android:textStyle="bold"
+              android:textColor="@color/black"
+                android:text="This is dummy Text For testing" />
 
 
         </com.aelzohry.topsaleqatar.utils.RoundedView>

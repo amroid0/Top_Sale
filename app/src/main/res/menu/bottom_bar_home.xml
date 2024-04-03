@@ -5,17 +5,17 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
 
-
+    <item
+      android:id="@+id/chatFragment"
+      android:icon="@drawable/ic_messages"
+      android:title="@string/messages" />
     <item
         android:id="@+id/categoriesFragment"
         android:icon="@drawable/ic_categories"
         android:title="@string/categories" />
 
 
-    <item
-        android:id="@+id/chatFragment"
-        android:icon="@drawable/ic_messages"
-        android:title="@string/messages" />
+
 
 <!--    <item-->
 <!--        android:id="@+id/addAdFragment"-->

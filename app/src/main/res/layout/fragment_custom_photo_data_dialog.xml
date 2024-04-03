@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/item_normal_template_6"/>
+            <include layout="@layout/item_normal_template_1"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

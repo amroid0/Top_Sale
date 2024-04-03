@@ -188,7 +188,7 @@ class CustomPhotoDataDialogFragment :
             1 -> maxLength = 13
             2 -> maxLength = 150
             3 -> maxLength = 150
-            4 -> maxLength = 200
+            4 -> maxLength = 50
             5 -> maxLength = 200
             6 -> maxLength = 200
 

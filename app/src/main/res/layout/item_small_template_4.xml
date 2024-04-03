@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+  xmlns:app="http://schemas.android.com/apk/res-auto">
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -15,29 +14,29 @@
         app:topLeftCornerRadius="10dp"
         app:topRightCornerRadius="10dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@color/black" />
+            <ImageView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:scaleType="fitXY"
+              android:src="@drawable/img_template_4" />
 
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/img_selected"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/custom_selected_photo" />
+            <ImageView
+              android:visibility="gone"
+              android:id="@+id/img_selected"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:src="@drawable/custom_selected_photo" />
 
-
-        <TextView
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="This is dummy Text For testing not real data, only to test if it inside width"/>
-
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="60dp"
+              android:maxLength="70"
+              android:paddingStart="39dp"
+              android:paddingEnd="16dp"
+              android:textStyle="bold"
+              android:textColor="@color/black"
+              android:text="This is dummy Text " />
     </com.aelzohry.topsaleqatar.utils.RoundedView>
     </FrameLayout>
 

@@ -28,14 +28,15 @@
             android:src="@drawable/custom_selected_photo" />
 
         <TextView
-            android:layout_marginTop="65dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="70"
-            android:text="This is dummy Text For testing not real data, only to test if it inside width"/>
-
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="60dp"
+          android:maxLength="70"
+          android:paddingStart="16dp"
+          android:paddingEnd="16dp"
+          android:textStyle="bold"
+          android:textColor="@color/black"
+          android:text="This is dummy Text For testing" />
     </com.aelzohry.topsaleqatar.utils.RoundedView>
 </FrameLayout>
 
